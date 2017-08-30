@@ -1,0 +1,262 @@
+# depslib dependency file v1.0
+1503310913 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/base.cpp
+	"base.h"
+
+1503316904 /mnt/personal/my/src/C++/opengl/GLEngine/base/engine/base.h
+	"renderable_interface.h"
+
+1503316934 /mnt/personal/my/src/C++/opengl/GLEngine/base/engine/renderable_interface.h
+
+1501015825 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/base_runner.cpp
+	"base_runner.h"
+	"display.h"
+	<GLFW/glfw3.h>
+	<iostream>
+
+1501014953 /mnt/personal/my/src/C++/opengl/GLEngine/base/engine/base_runner.h
+
+1501014050 /mnt/personal/my/src/C++/opengl/GLEngine/base/engine/display.h
+	<GLFW/glfw3.h>
+
+1504030710 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/camera.cpp
+	"camera.h"
+	"matrix_projection_computations.h"
+	"matrix_computations.h"
+	"matrix_model_compuations.h"
+	"matrix_helpers.h"
+	"quaternion_computations.h"
+
+1504028252 /mnt/personal/my/src/C++/opengl/GLEngine/base/engine/camera.h
+	"model_data.h"
+
+1504028113 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/model.h
+	"model_data.h"
+
+1503756092 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/matrix_math_types.h
+	<GL/glew.h>
+
+1503431977 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/matrix_projection_computations.h
+	"matrix_math_types.h"
+
+1500925298 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/matrix_computations.h
+	"matrix_math_types.h"
+
+1504017608 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/matrix_helpers.h
+	"matrix_math_types.h"
+
+1501016834 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/display.cpp
+	<GL/glew.h>
+	"display.h"
+	<stdlib.h>
+	"input_key_registry.h"
+	<iostream>
+
+1504093078 /mnt/personal/my/src/C++/opengl/GLEngine/base/input/input_key_registry.h
+	<GLFW/glfw3.h>
+
+1501012716 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/display_operations.cpp
+	"display_operations.h"
+	"display.h"
+
+1501012648 /mnt/personal/my/src/C++/opengl/GLEngine/base/engine/display_operations.h
+
+1500985082 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/gl_error_handler.cpp
+	"gl_error_handler.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<iostream>
+	<string>
+	"gl_enum_to_string.h"
+
+1500898092 /mnt/personal/my/src/C++/opengl/GLEngine/base/engine/gl_error_handler.h
+
+1504091740 /mnt/personal/my/src/C++/opengl/GLEngine/base/util/gl_enum_to_string.h
+	<string>
+	<GLFW/glfw3.h>
+
+1500918451 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/gl_initializator.cpp
+	"gl_initializator.h"
+	<GL/glew.h>
+	<iostream>
+	"display.h"
+	"gl_error_handler.h"
+	"window_input_handler.h"
+
+1500920045 /mnt/personal/my/src/C++/opengl/GLEngine/base/engine/gl_initializator.h
+
+1504093343 /mnt/personal/my/src/C++/opengl/GLEngine/base/input/window_input_handler.h
+	<GLFW/glfw3.h>
+
+1503316946 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/renderable_interface.cpp
+	"renderable_interface.h"
+
+1500978042 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/filesystem/file_reader.cpp
+	"file_reader.h"
+	<string>
+	<fstream>
+	<vector>
+	<streambuf>
+
+1500978596 /mnt/personal/my/src/C++/opengl/GLEngine/base/filesystem/file_reader.h
+	<string>
+	<vector>
+
+1504093842 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/input/input_key_registry.cpp
+	"input_key_registry.h"
+	<iostream>
+	<vector>
+	<algorithm>
+
+1504093298 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/input/window_input_handler.cpp
+	"window_input_handler.h"
+	<GLFW/glfw3.h>
+	"input_key_registry.h"
+	<vector>
+	<algorithm>
+
+1504032475 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/math/basic_matrix_transformations.cpp
+	"basic_matrix_transformations.h"
+	"matrix_helpers.h"
+	"vector_helpers.h"
+	<math.h>
+
+1504029993 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/basic_matrix_transformations.h
+	"matrix_math_types.h"
+	"degree_radians_conversion.h"
+
+1500922926 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/degree_radians_conversion.h
+	<GL/glew.h>
+
+1504012420 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/vector_helpers.h
+	"matrix_math_types.h"
+
+1503768964 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/math/compound_matrix_transformations.cpp
+	"compound_matrix_transformations.h"
+	"matrix_generators.h"
+	"matrix_computations.h"
+	"basic_matrix_transformations.h"
+	<math.h>
+	"trigonometry_helpers.h"
+
+1504012071 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/compound_matrix_transformations.h
+	"matrix_math_types.h"
+	"degree_radians_conversion.h"
+
+1500978319 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/matrix_generators.h
+	"matrix_math_types.h"
+
+1503597640 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/math/matrix_computations.cpp
+	"matrix_computations.h"
+
+1500924077 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/math/matrix_generators.cpp
+	"matrix_generators.h"
+
+1504018062 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/math/matrix_helpers.cpp
+	"matrix_helpers.h"
+	<iostream>
+
+1504031612 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/math/matrix_model_compuations.cpp
+	"matrix_model_compuations.h"
+	"matrix_generators.h"
+	"basic_matrix_transformations.h"
+	"matrix_computations.h"
+	"compound_matrix_transformations.h"
+	"quaternion_computations.h"
+	"matrix_helpers.h"
+
+1504029822 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/matrix_model_compuations.h
+	"matrix_math_types.h"
+	"degree_radians_conversion.h"
+
+1503432416 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/math/matrix_projection_computations.cpp
+	"matrix_projection_computations.h"
+	"matrix_helpers.h"
+
+1504019470 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/math/quaternion_computations.cpp
+	"quaternion_computations.h"
+	"vector_helpers.h"
+	<math.h>
+
+1504019472 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/quaternion_computations.h
+	"matrix_math_types.h"
+	"degree_radians_conversion.h"
+
+1503593815 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/math/trigonometry_helpers.cpp
+	"trigonometry_helpers.h"
+	<math.h>
+
+1503595520 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/trigonometry_helpers.h
+	<GLFW/glfw3.h>
+
+1504012308 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/math/vector_helpers.cpp
+	"vector_helpers.h"
+	<math.h>
+
+1504030831 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/model.cpp
+	"model.h"
+	"matrix_model_compuations.h"
+	"quaternion_computations.h"
+
+1503428197 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/model_buffer_generators.cpp
+	"model_buffer_generators.h"
+
+1500979758 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/model_buffer_generators.h
+	<GL/glew.h>
+
+1504034321 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/shader_compiler.cpp
+	"shader_compiler.h"
+	<string>
+	<iostream>
+	"gl_enum_to_string.h"
+	"file_reader.h"
+
+1500927162 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/shader_compiler.h
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+
+1504091918 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/util/gl_enum_to_string.cpp
+	"gl_enum_to_string.h"
+
+1504094799 source:/mnt/personal/my/src/C++/opengl/GLEngine/main.cpp
+	<iostream>
+	"base/engine/gl_initializator.h"
+	"base/engine/base_runner.h"
+	<GL/glew.h>
+	"shader_compiler.h"
+	"model_buffer_generators.h"
+	"matrix_computations.h"
+	"matrix_generators.h"
+	"basic_matrix_transformations.h"
+	"base/engine/display.h"
+	"window_input_handler.h"
+	"camera.h"
+	"matrix_helpers.h"
+	"compound_matrix_transformations.h"
+	"quaternion_computations.h"
+	"vector_helpers.h"
+	"model.h"
+	"shader.h"
+
+1504030617 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/model_data.h
+	"matrix_math_types.h"
+
+1504031955 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/model_data.cpp
+	"model_data.h"
+	"matrix_model_compuations.h"
+	"quaternion_computations.h"
+	"vector_helpers.h"
+	"iostream"
+
+1504034661 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/bindable.cpp
+	"bindable.h"
+
+1504034671 /mnt/personal/my/src/C++/opengl/GLEngine/base/engine/bindable.h
+
+1504088761 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/shader.cpp
+	"shader_compiler.h"
+	"shader.h"
+
+1504088590 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/shader.h
+	"bindable.h"
+	"GLFW/glfw3.h"
+

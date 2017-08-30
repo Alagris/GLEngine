@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="GLEngine" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/GLEngine" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+					<Add directory="base" />
+					<Add directory="base/math" />
+					<Add directory="base/shader" />
+					<Add directory="base/util" />
+					<Add directory="base/filesystem" />
+					<Add directory="base/model" />
+					<Add directory="base/input" />
+					<Add directory="base/engine" />
+				</Compiler>
+				<Linker>
+					<Add library="GL" />
+					<Add library="glfw" />
+					<Add library="GLEW" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/GLEngine" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+					<Add directory="base" />
+					<Add directory="base/math" />
+					<Add directory="base/shader" />
+					<Add directory="base/util" />
+					<Add directory="base/filesystem" />
+					<Add directory="base/model" />
+					<Add directory="base/input" />
+					<Add directory="base/engine" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="base/engine/base.cpp" />
+		<Unit filename="base/engine/base.h" />
+		<Unit filename="base/engine/base_runner.cpp" />
+		<Unit filename="base/engine/base_runner.h" />
+		<Unit filename="base/engine/bindable.cpp" />
+		<Unit filename="base/engine/bindable.h" />
+		<Unit filename="base/engine/camera.cpp" />
+		<Unit filename="base/engine/camera.h" />
+		<Unit filename="base/engine/display.cpp" />
+		<Unit filename="base/engine/display.h" />
+		<Unit filename="base/engine/display_operations.cpp" />
+		<Unit filename="base/engine/display_operations.h" />
+		<Unit filename="base/engine/gl_error_handler.cpp" />
+		<Unit filename="base/engine/gl_error_handler.h" />
+		<Unit filename="base/engine/gl_initializator.cpp" />
+		<Unit filename="base/engine/gl_initializator.h" />
+		<Unit filename="base/engine/renderable_interface.cpp" />
+		<Unit filename="base/engine/renderable_interface.h" />
+		<Unit filename="base/filesystem/file_reader.cpp" />
+		<Unit filename="base/filesystem/file_reader.h" />
+		<Unit filename="base/input/input_key_registry.cpp" />
+		<Unit filename="base/input/input_key_registry.h" />
+		<Unit filename="base/input/window_input_handler.cpp" />
+		<Unit filename="base/input/window_input_handler.h" />
+		<Unit filename="base/math/basic_matrix_transformations.cpp" />
+		<Unit filename="base/math/basic_matrix_transformations.h" />
+		<Unit filename="base/math/compound_matrix_transformations.cpp" />
+		<Unit filename="base/math/compound_matrix_transformations.h" />
+		<Unit filename="base/math/degree_radians_conversion.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="base/math/matrix_computations.cpp" />
+		<Unit filename="base/math/matrix_computations.h" />
+		<Unit filename="base/math/matrix_generators.cpp" />
+		<Unit filename="base/math/matrix_generators.h" />
+		<Unit filename="base/math/matrix_helpers.cpp" />
+		<Unit filename="base/math/matrix_helpers.h" />
+		<Unit filename="base/math/matrix_math_types.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="base/math/matrix_model_compuations.cpp" />
+		<Unit filename="base/math/matrix_model_compuations.h" />
+		<Unit filename="base/math/matrix_projection_computations.cpp" />
+		<Unit filename="base/math/matrix_projection_computations.h" />
+		<Unit filename="base/math/quaternion_computations.cpp" />
+		<Unit filename="base/math/quaternion_computations.h" />
+		<Unit filename="base/math/trigonometry_helpers.cpp" />
+		<Unit filename="base/math/trigonometry_helpers.h" />
+		<Unit filename="base/math/vector_helpers.cpp" />
+		<Unit filename="base/math/vector_helpers.h" />
+		<Unit filename="base/model/model.cpp" />
+		<Unit filename="base/model/model.h" />
+		<Unit filename="base/model/model_buffer_generators.cpp" />
+		<Unit filename="base/model/model_buffer_generators.h" />
+		<Unit filename="base/model/model_data.cpp" />
+		<Unit filename="base/model/model_data.h" />
+		<Unit filename="base/model/model_simple_predefined.h" />
+		<Unit filename="base/shader/shader.cpp" />
+		<Unit filename="base/shader/shader.h" />
+		<Unit filename="base/shader/shader_compiler.cpp" />
+		<Unit filename="base/shader/shader_compiler.h" />
+		<Unit filename="base/util/gl_enum_to_string.cpp" />
+		<Unit filename="base/util/gl_enum_to_string.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="res/shaders/shader.frag" />
+		<Unit filename="res/shaders/shader.vert" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
