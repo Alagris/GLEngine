@@ -1,11 +1,11 @@
 #include "model_data.h"
-
+#include "mouse_input_helper.h"
 #include "matrix_model_compuations.h"
 #include "quaternion_computations.h"
 #include "vector_helpers.h"
 #include "iostream"
 namespace gle {
-    ModelData::ModelData():m_scale(Vec3(1,1,1,1))
+    ModelData::ModelData():m_hasBeenModified(true),m_scale(Vec3(1,1,1,1))
     {
         //ctor
     }
@@ -33,9 +33,22 @@ namespace gle {
         setLocation(getLocationX()+direction.x,getLocationY()+direction.y,getLocationZ()+direction.z);
     }
 
-    void ModelData::rotateByQuaternion(const Vec3 & rotationQuaternion) {
+    void ModelData::rotateAccordingToMouseMovementLockAxes(const double movementX,const double movementY,const double sensitivityInRadiansPerPixel) {
+        m_hasBeenModified=true;
+        rotateQuaternionAccordingToMouseMovementLockAxes(movementX,movementY,sensitivityInRadiansPerPixel,m_rotation);
+    }
+    void  ModelData::rotateDegreesAccordingToMouseMovementLockAxes(const double movementX,const double movementY,const double sensitivityInDegreesPerPixel) {
+         m_hasBeenModified=true;
+        rotateDegreesQuaternionAccordingToMouseMovementLockAxes(movementX,movementY,sensitivityInDegreesPerPixel,m_rotation);
+    }
+    void ModelData::rotateFirstByQuaternionThenByCurrentRotation(const Vec3 & rotationQuaternion) {
         Vec3 tmp;
         multiplyQuaternions(m_rotation,rotationQuaternion,tmp);
+        setRotationQuaternion(tmp);
+    }
+    void ModelData::rotateFirstByCurrentRotationThenByQuaternion(const Vec3 & rotationQuaternion) {
+        Vec3 tmp;
+        multiplyQuaternions(rotationQuaternion,m_rotation,tmp);
         setRotationQuaternion(tmp);
     }
 
@@ -71,5 +84,13 @@ namespace gle {
     void  ModelData::setScaleDepth(const GLfloat depth) {
         m_hasBeenModified=true;
         m_scale.z=depth;
+    }
+
+
+    void ModelData::setAnotherModelPositionRelativelyToThisOne(ModelData & another,Vec3 relativePosition) const {
+        another.setLocation(m_location);
+        rotateVec3WithQuaternion(relativePosition,m_rotation);
+        another.addLocation(relativePosition);
+        another.setRotationQuaternion(m_rotation);
     }
 }

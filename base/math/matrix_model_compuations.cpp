@@ -110,15 +110,18 @@ namespace gle {
         ,const GLfloat w
         ,const GLfloat h
         ,const GLfloat d
-        ,const Vec3 & quaternion
+        ,const GLfloat quaternionX
+        ,const GLfloat quaternionY
+        ,const GLfloat quaternionZ
+        ,const GLfloat quaternionW
         ,Mat4 outputMatrix) {
 
-         //first translating then scaling
+        //first translating then scaling
         Mat4 tmpMatrix;
         translateThenScaleMat4(tmpMatrix,x,y,z,w,h,d);
 
         //and rotating
-        rotateMat4WithQuaternion(outputMatrix,quaternion);
+        rotateMat4WithQuaternion(outputMatrix,quaternionX,quaternionY,quaternionZ,quaternionW);
 
 
         //here:

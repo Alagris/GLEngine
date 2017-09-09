@@ -10,14 +10,22 @@ namespace gle {
     ////////////////
     InputKeyRegistry inputKeyRegistry;
 
+
     typedef std::vector<mouse_callback> mouse_callbacks;
     typedef std::vector<mouse_button_callback> mouse_button_callbacks;
     mouse_callbacks mouseMoveCallbacks;
+    mouse_callbacks mousePerTickMoveCallbacks;
     mouse_button_callbacks mousePressCallbacks;
     double lastRegisteredMousePosX=-1;
     double lastRegisteredMousePosY=-1;
-
-
+    /**sometimes there are more than just one input callbacks registered between game ticks.
+    Callbacks are executed only when glfwPollEvents() is called. However mouse input is
+    registered virtually continously be hardware and OS. That's why this variable containes
+    sum of mouse inputs regsitered between current and previous tick. This is updated by mouseUpdatePosition()*/
+    double lastRegisteredMousePosPerTickX=-1;
+    double lastRegisteredMousePosPerTickY=-1;
+    double lastRegisteredMouseMovementPerTickX=-1;
+    double lastRegisteredMouseMovementPerTickY=-1;
     ////////////////
     //local functions
     ////////////////
@@ -31,6 +39,7 @@ namespace gle {
         for(const mouse_callback mouseCallback: mouseMoveCallbacks) {
             mouseCallback(xpos,ypos,lastRegisteredMousePosX,lastRegisteredMousePosY);
         }
+
         lastRegisteredMousePosX=xpos;
         lastRegisteredMousePosY=ypos;
     }
@@ -43,7 +52,7 @@ namespace gle {
     template<class T,std::vector<T>* callbacks>
     void mouseAddCallback(const T mouseCallback) {
         auto result = std::find(callbacks->begin(),callbacks->end(),mouseCallback);
-        if(result != std::end(*callbacks))callbacks->push_back(mouseCallback);
+        if(result == std::end(*callbacks))callbacks->push_back(mouseCallback);
     }
     template<class T,std::vector<T>* callbacks>
     void mouseEraseCallback(const T mouseCallback) {
@@ -82,14 +91,20 @@ namespace gle {
     void keyboardDisableKey(const int key) {
         inputKeyRegistry.disableKey(key);
     }
-    void keyboardUpdateKeys() {
-        inputKeyRegistry.updateKeys();
+    void keyboardUpdateKeys(GLFWwindow* window) {
+        inputKeyRegistry.updateKeys(window);
     }
     void mouseAddMoveCallback(const mouse_callback mouseCallback) {
         mouseAddCallback<mouse_callback,&mouseMoveCallbacks>(mouseCallback);
     }
     void mouseEraseMoveCallback(const mouse_callback mouseCallback) {
         mouseEraseCallback<mouse_callback,&mouseMoveCallbacks>(mouseCallback);
+    }
+    void mouseAddPerTickMoveCallback(const mouse_callback mouseCallback) {
+        mouseAddCallback<mouse_callback,&mousePerTickMoveCallbacks>(mouseCallback);
+    }
+    void mouseErasePerTickMoveCallback(const mouse_callback mouseCallback) {
+        mouseEraseCallback<mouse_callback,&mousePerTickMoveCallbacks>(mouseCallback);
     }
     void mouseAddPressCallback(const mouse_button_callback mouseCallback) {
         mouseAddCallback<mouse_button_callback,&mousePressCallbacks>(mouseCallback);
@@ -102,5 +117,33 @@ namespace gle {
     }
     double getLastMousePosY() {
         return lastRegisteredMousePosY;
+    }
+
+    void mouseUpdatePosition() {
+
+        for(const mouse_callback mouseCallback: mousePerTickMoveCallbacks) {
+            mouseCallback(lastRegisteredMousePosX,lastRegisteredMousePosY,lastRegisteredMousePosPerTickX,lastRegisteredMousePosPerTickY);
+        }
+        lastRegisteredMouseMovementPerTickX= lastRegisteredMousePosX-lastRegisteredMousePosPerTickX;
+        lastRegisteredMouseMovementPerTickY= lastRegisteredMousePosY-lastRegisteredMousePosPerTickY;
+        lastRegisteredMousePosPerTickX=lastRegisteredMousePosX;
+        lastRegisteredMousePosPerTickY=lastRegisteredMousePosY;
+
+    }
+
+    void mouseResetPosition(const double mouseX,const double mouseY){
+        lastRegisteredMousePosX=mouseX;
+        lastRegisteredMousePosY=mouseY;
+        lastRegisteredMousePosPerTickX=mouseX;
+        lastRegisteredMousePosPerTickY=mouseY;
+        lastRegisteredMouseMovementPerTickX=0;
+        lastRegisteredMouseMovementPerTickY=0;
+    }
+
+    double getLastMouseMovementX() {
+        return lastRegisteredMouseMovementPerTickX;
+    }
+    double getLastMouseMovementY() {
+        return lastRegisteredMouseMovementPerTickY;
     }
 }

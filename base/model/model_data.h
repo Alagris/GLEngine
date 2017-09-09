@@ -14,6 +14,9 @@ namespace gle {
         //setters
         /////////////////////////
 
+        inline void addLocation(const Vec3 & locationVector) {
+            setLocation(m_location.x+locationVector.x,m_location.y+locationVector.y,m_location.z+locationVector.z);
+        }
         inline void setLocation(const Vec3 & locationVector) {
             setLocation(locationVector.x,locationVector.y,locationVector.z);
         }
@@ -38,20 +41,22 @@ namespace gle {
         /////////////////////////
         //operations
         /////////////////////////
-        void rotateByQuaternion(const Vec3 & rotationQuaternion);
-        void updateModelMatrix();
+        void rotateFirstByQuaternionThenByCurrentRotation(const Vec3 & rotationQuaternion);
+        void rotateFirstByCurrentRotationThenByQuaternion(const Vec3 & rotationQuaternion);
 
         void moveAccordingToRotation(const GLfloat initialDirectionX=1,const GLfloat initialDirectionY=0,const GLfloat initialDirectionZ=0);
 
+        void rotateAccordingToMouseMovementLockAxes(const double movementX,const double movementY,const double sensitivityInRadiansPerPixel);
+        void rotateDegreesAccordingToMouseMovementLockAxes(const double movementX,const double movementY,const double sensitivityInDegreesPerPixel);
 
-
+        void setAnotherModelPositionRelativelyToThisOne(ModelData & another, Vec3  relativePosition) const;
+        inline void setAnotherModelPositionRelativelyToThisOne(ModelData & another,const GLfloat relativePositionX,const GLfloat relativePositionY,const GLfloat relativePositionZ) const {
+            setAnotherModelPositionRelativelyToThisOne(another,Vec3(relativePositionX,  relativePositionY, relativePositionZ));
+        }
         /////////////////////////
         //const getters
         /////////////////////////
 
-        inline const Vec3 getRotationQuaternion() const {
-            return m_rotation;
-        }
         inline const GLfloat  getLocationX() const {
             return m_location.x;
         }
@@ -70,21 +75,25 @@ namespace gle {
         inline const GLfloat getScaleDepth() const {
             return m_scale.z;
         }
-        inline const bool hasBeenModified() const{
+        inline const bool hasBeenModified() const {
             return m_hasBeenModified;
         }
-
+        inline const Vec3 & getLocation()const {
+            return m_location;
+        }
+        inline const Vec3 & getScale()const {
+            return m_scale;
+        }
+        inline const Vec3 & getRotation()const {
+            return m_rotation;
+        }
       protected:
-        inline  Vec3 & getRotationQuaternionByRef()  {
-            return m_rotation;
-        }
-        inline const Vec3 & getRotationQuaternionByRef() const {
-            return m_rotation;
-        }
+
+
       private:
         void setRotationQuaternion(const GLfloat x,const GLfloat y,const GLfloat z,const GLfloat w);
 
-        bool m_hasBeenModified=false;
+        bool m_hasBeenModified;
         Vec3 m_location;
         /**Rotation is a quaternion*/
         Vec3 m_rotation;

@@ -25,10 +25,12 @@ namespace gle {
         //dtor
     }
 
-    void Camera::updateViewMatrix(){
-        reverseQuaternion(getRotationQuaternionByRef());
-        calculateQuaternionFinalReversedModelMatrix(-getLocationX(),-getLocationY(),-getLocationZ(),1/getScaleWidth(),1/getScaleHeight(),1/getScaleDepth(),getRotationQuaternionByRef(),m_viewMatrix);
-        reverseQuaternion(getRotationQuaternionByRef());
+    void Camera::updateViewMatrix() {
+        calculateQuaternionFinalReversedModelMatrix(
+            -getLocationX(),-getLocationY(),-getLocationZ(),
+            1/getScaleWidth(),1/getScaleHeight(),1/getScaleDepth(),
+            -getRotation().x,-getRotation().y,-getRotation().z,getRotation().w,
+            m_viewMatrix);
     }
 
     void Camera::setPerspectiveProjection(const GLfloat left,

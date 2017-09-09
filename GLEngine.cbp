@@ -22,11 +22,14 @@
 					<Add directory="base/model" />
 					<Add directory="base/input" />
 					<Add directory="base/engine" />
+					<Add directory="base/model/assimp" />
+					<Add directory="base/render" />
 				</Compiler>
 				<Linker>
 					<Add library="GL" />
 					<Add library="glfw" />
 					<Add library="GLEW" />
+					<Add library="assimp" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -45,6 +48,8 @@
 					<Add directory="base/model" />
 					<Add directory="base/input" />
 					<Add directory="base/engine" />
+					<Add directory="base/model/assimp" />
+					<Add directory="base/render" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -77,6 +82,8 @@
 		<Unit filename="base/filesystem/file_reader.h" />
 		<Unit filename="base/input/input_key_registry.cpp" />
 		<Unit filename="base/input/input_key_registry.h" />
+		<Unit filename="base/input/mouse_input_helper.cpp" />
+		<Unit filename="base/input/mouse_input_helper.h" />
 		<Unit filename="base/input/window_input_handler.cpp" />
 		<Unit filename="base/input/window_input_handler.h" />
 		<Unit filename="base/math/basic_matrix_transformations.cpp" />
@@ -105,6 +112,22 @@
 		<Unit filename="base/math/trigonometry_helpers.h" />
 		<Unit filename="base/math/vector_helpers.cpp" />
 		<Unit filename="base/math/vector_helpers.h" />
+		<Unit filename="base/model/assimp/assimp_buffer_generators.cpp" />
+		<Unit filename="base/model/assimp/assimp_buffer_generators.h" />
+		<Unit filename="base/model/assimp/assimp_constants.h" />
+		<Unit filename="base/model/assimp/assimp_converters.h" />
+		<Unit filename="base/model/assimp/assimp_copy_data.cpp" />
+		<Unit filename="base/model/assimp/assimp_copy_data.h" />
+		<Unit filename="base/model/assimp/assimp_counters.cpp" />
+		<Unit filename="base/model/assimp/assimp_counters.h" />
+		<Unit filename="base/model/assimp/assimp_loader.cpp" />
+		<Unit filename="base/model/assimp/assimp_loader.h" />
+		<Unit filename="base/model/assimp/assimp_subbuffer_generators.cpp" />
+		<Unit filename="base/model/assimp/assimp_subbuffer_generators.h" />
+		<Unit filename="base/model/assimp/assimp_vertex_array_object_generators.cpp" />
+		<Unit filename="base/model/assimp/assimp_vertex_array_object_generators.h" />
+		<Unit filename="base/model/element_buffer_object.cpp" />
+		<Unit filename="base/model/element_buffer_object.h" />
 		<Unit filename="base/model/model.cpp" />
 		<Unit filename="base/model/model.h" />
 		<Unit filename="base/model/model_buffer_generators.cpp" />
@@ -112,13 +135,40 @@
 		<Unit filename="base/model/model_data.cpp" />
 		<Unit filename="base/model/model_data.h" />
 		<Unit filename="base/model/model_simple_predefined.h" />
+		<Unit filename="base/model/model_subbuffer_generators.cpp" />
+		<Unit filename="base/model/model_subbuffer_generators.h" />
+		<Unit filename="base/model/vertex_array_object.cpp" />
+		<Unit filename="base/model/vertex_array_object.h" />
+		<Unit filename="base/model/vertex_buffer_object.cpp" />
+		<Unit filename="base/model/vertex_buffer_object.h" />
+		<Unit filename="base/model/vertex_buffer_object_helpers.cpp" />
+		<Unit filename="base/model/vertex_buffer_object_helpers.h" />
+		<Unit filename="base/render/vertex_array_object_renderer.cpp" />
+		<Unit filename="base/render/vertex_array_object_renderer.h" />
 		<Unit filename="base/shader/shader.cpp" />
 		<Unit filename="base/shader/shader.h" />
 		<Unit filename="base/shader/shader_compiler.cpp" />
 		<Unit filename="base/shader/shader_compiler.h" />
+		<Unit filename="base/shader/vertex_attrib_helpers.cpp" />
+		<Unit filename="base/shader/vertex_attrib_helpers.h" />
+		<Unit filename="base/shader/vertex_attrib_pointer_setup.cpp" />
+		<Unit filename="base/shader/vertex_attrib_pointer_setup.h" />
+		<Unit filename="base/util/exit_exception.cpp" />
+		<Unit filename="base/util/exit_exception.h" />
 		<Unit filename="base/util/gl_enum_to_string.cpp" />
 		<Unit filename="base/util/gl_enum_to_string.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="res/models/Octavia.skp" />
+		<Unit filename="res/models/Octavia.zip" />
+		<Unit filename="res/models/model.dae" />
+		<Unit filename="res/models/model/_1.jpg" />
+		<Unit filename="res/models/model/_2.jpg" />
+		<Unit filename="res/models/model/_3.jpg" />
+		<Unit filename="res/models/model/_3_1.jpg" />
+		<Unit filename="res/models/model/_4.jpg" />
+		<Unit filename="res/models/model/_4_0.jpg" />
+		<Unit filename="res/models/model/_5.jpg" />
+		<Unit filename="res/models/model/pony.jpg" />
 		<Unit filename="res/shaders/shader.frag" />
 		<Unit filename="res/shaders/shader.vert" />
 		<Extensions>

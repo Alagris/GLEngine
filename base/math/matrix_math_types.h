@@ -7,6 +7,7 @@ namespace gle {
 
     struct Vec3 {
         Vec3(const GLfloat p_x=0,const GLfloat p_y=0,const GLfloat p_z=0,const GLfloat p_w=1):x(p_x),y(p_y),z(p_z),w(p_w) {}
+        Vec3(const Vec3 &  v):x(v.x),y(v.y),z(v.z),w(v.w) {}
         GLfloat x,y,z,w;
     };
 }

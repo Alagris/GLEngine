@@ -13,7 +13,7 @@ namespace gle {
     }
 
     void Model::updateModelMatrix() {
-        if(hasBeenModified())calculateQuaternionFinalModelMatrix(getLocationX(),getLocationY(),getLocationY(),getScaleWidth(),getScaleHeight(),getScaleDepth(),getRotationQuaternionByRef(),m_modelMatrix);
+        if(hasBeenModified())calculateQuaternionFinalModelMatrix(getLocation(),getScale(),getRotation(),m_modelMatrix);
     }
 
 }

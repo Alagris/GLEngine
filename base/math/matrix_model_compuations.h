@@ -104,6 +104,7 @@ namespace gle {
     /////////////////////////
     //REVERSED (first translation, then scaling and rotation)
     /////////////////////////
+
     void calculateQuaternionFinalReversedModelMatrix(
         const GLfloat x
         ,const GLfloat y
@@ -111,8 +112,23 @@ namespace gle {
         ,const GLfloat w
         ,const GLfloat h
         ,const GLfloat d
-        ,const Vec3 & quaternion
+        ,const GLfloat quaternionX
+        ,const GLfloat quaternionY
+        ,const GLfloat quaternionZ
+        ,const GLfloat quaternionW
         ,Mat4 outputMatrix);
+
+    inline void calculateQuaternionFinalReversedModelMatrix(
+        const GLfloat x
+        ,const GLfloat y
+        ,const GLfloat z
+        ,const GLfloat w
+        ,const GLfloat h
+        ,const GLfloat d
+        ,const Vec3 & quaternion
+        ,Mat4 outputMatrix){
+        calculateQuaternionFinalReversedModelMatrix(x,y,z,w,h,d,quaternion.x,quaternion.y,quaternion.z,quaternion.w,outputMatrix);
+    }
 
     inline void calculateQuaternionFinalReversedModelMatrix(
         const Vec3 & position
