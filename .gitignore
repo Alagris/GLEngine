@@ -1,1 +1,3 @@
 lib/stb_image.h
+lib/*
+res/models/*
