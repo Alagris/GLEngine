@@ -15,12 +15,21 @@
 #include "assimp_loader.h"
 #include "assimp/scene.h"
 #include "vertex_array_object.h"
+#include "vertex_array_object_helpers.h"
 #include "assimp_counters.h"
 #include "assimp_converters.h"
 #include "assimp_copy_data.h"
 #include "vertex_buffer_object.h"
 #include "vertex_buffer_object_helpers.h"
 #include "vertex_attrib_pointer_setup.h"
+#include <FreeImage.h>
+#include "texture_context.h"
+#include "texture_loader.h"
+#include "vao_vbo_ebo_package.h"
+#include "vao_vbo_ebo_package_helpers.h"
+#include "model_buffer_binders.h"
+#include "render_ready_package.h"
+#include "render_ready_package_helpers.h"
 GLfloat zNear = 2;
 GLfloat rest = 2;
 GLfloat zFar = -2;
@@ -29,19 +38,19 @@ gle::Model modelMatrix1;
 gle::Mat4 mvpMatrix;
 gle::Shader shader;
 GLint mvp_handle;
-gle::VertexArrayObject vao;
+gle::RenderReadyPackage rr;
 
 void moveLeft(GLFWwindow* window, int key, int scancode, int action, int mods) {
-    cam.moveAccordingToRotation(-0.1);
+    cam.moveAccordingToRotation(-0.5);
 }
 void moveRight(GLFWwindow* window, int key, int scancode, int action, int mods) {
-    cam.moveAccordingToRotation(0.1);
+    cam.moveAccordingToRotation(0.5);
 }
 void moveForward(GLFWwindow* window, int key, int scancode, int action, int mods) {
-    cam.moveAccordingToRotation(0,0,-0.1);
+    cam.moveAccordingToRotation(0,0,-0.5);
 }
 void moveBackward(GLFWwindow* window, int key, int scancode, int action, int mods) {
-    cam.moveAccordingToRotation(0,0,0.1);
+    cam.moveAccordingToRotation(0,0,0.5);
 }
 void nearUp(GLFWwindow* window, int key, int scancode, int action, int mods) {
     zNear+=0.1;
@@ -67,6 +76,12 @@ void farDown(GLFWwindow* window, int key, int scancode, int action, int mods) {
     zFar-=0.1;
     cam.setPerspectiveProjection(-rest,rest,rest,-rest,zNear,zFar);
 }
+void scaleUp(GLFWwindow* window, int key, int scancode, int action, int mods) {
+    modelMatrix1.setScale(modelMatrix1.getScaleDepth()*1.1);
+}
+void scaleDown(GLFWwindow* window, int key, int scancode, int action, int mods) {
+    modelMatrix1.setScale(modelMatrix1.getScaleDepth()/1.1);
+}
 gle::Display * display;
 void mouseGrabTrigger(const int button,const int action,const int mods,const double x,const double y) {
     if(action==GLFW_PRESS)
@@ -80,6 +95,7 @@ void mouseCameraMove(const double x,const double y,const double previousX,const 
 
 
 void init(gle::Display & d) {
+
     gle::init(&d);
     display=&d;
     gle::keyboardAddKey(GLFW_KEY_A,moveLeft);
@@ -92,6 +108,8 @@ void init(gle::Display & d) {
     gle::keyboardAddKey(GLFW_KEY_G,restDown);
     gle::keyboardAddKey(GLFW_KEY_V,farUp);
     gle::keyboardAddKey(GLFW_KEY_B,farDown);
+    gle::keyboardAddKey(GLFW_KEY_Q,scaleUp);
+    gle::keyboardAddKey(GLFW_KEY_E,scaleDown);
     gle::mouseAddPerTickMoveCallback(mouseCameraMove);
     gle::mouseAddPressCallback(mouseGrabTrigger);
     glDepthMask(GL_TRUE);
@@ -99,13 +117,17 @@ void init(gle::Display & d) {
     glDepthFunc(GL_LEQUAL);
     glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
+//    gle::importModel("res/models/bicyclekeycollada.dae",rr,GL_STATIC_DRAW,0,-1,2,0,1,1,1);
+    gle::importModel("res/models/model.dae",rr,GL_STATIC_DRAW,0,-1,2,0,1,1,1);
+//    gle::importModel("res/models/dummy_obj.obj",rr,GL_STATIC_DRAW,0,-1,2,0,1,1,1);
 
-    gle::importModel("res/models/model.dae",vao);
-
+    gle::unbindVAO();
+    gle::unbindEBO();
     shader.load("res/shaders/shader.vert","res/shaders/shader.frag");
     shader.bind();
     mvp_handle = glGetUniformLocation(shader.getID(), "MVP");
 }
+
 void update(gle::Display & d) {
     d.updateInput();
     modelMatrix1.updateModelMatrix();
@@ -117,13 +139,12 @@ void update(gle::Display & d) {
 void render(gle::Display & d) {
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-    vao.bind();
-    vao.bindEBO();
-    cam.getModelViewProjectionMatrix(modelMatrix1.getModelMatrix(),mvpMatrix);
-    glUniformMatrix4fv(mvp_handle, 1, GL_TRUE, mvpMatrix);
-    vao.renderEBO(GL_TRIANGLES,0);
-
+    if(shader.getID()!=0 && gle::hasVAO_ID(rr.getData()) ) {
+        cam.getModelViewProjectionMatrix(modelMatrix1.getModelMatrix(),mvpMatrix);
+        glUniformMatrix4fv(mvp_handle, 1, GL_TRUE, mvpMatrix);
+//        gle::renderEBO(rr,GL_TRIANGLES,0);
+        gle::renderAllEBO(rr,GL_TRIANGLES);
+    }
 
 
     glfwSwapBuffers(d.getWindow());
@@ -135,6 +156,7 @@ void destroy(gle::Display & d) {
 
 int main()
 {
+    gle::TextureContext texContext(true);
     gle::setInitializationCallback(::init);
     gle::setRenderCallback(::render);
     gle::setUpdateCallback(::update);

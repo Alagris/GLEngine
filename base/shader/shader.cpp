@@ -5,12 +5,6 @@
 namespace gle {
 
 
-    void Shader::tryToDestroyProgram() const {
-        if((*m_referenceCount)==0) {
-            glDeleteProgram(m_shaderProgram);
-            delete m_referenceCount;
-        }
-    }
 
     Shader::Shader():
         m_shaderProgram(0),
@@ -28,25 +22,18 @@ namespace gle {
         m_shaderProgram(s.m_shaderProgram),
         m_referenceCount(s.m_referenceCount)
     {
-        addReference(1);
+        (*m_referenceCount)++;
     }
     Shader & Shader::operator=( const Shader &s) {
+        if (this == &s) return *this;
+        commonDestructor();
         m_shaderProgram=s.m_shaderProgram;
-
-        addReference(-1);
-        tryToDestroyProgram();
         m_referenceCount=s.m_referenceCount;
-        addReference(1);
-
+        (*m_referenceCount)++;
         return *this;
     }
 
 
-    void  Shader::addReference(const unsigned int count) const {
-        if(m_referenceCount!=nullptr) {
-            (*m_referenceCount)+=count;
-        }
-    }
 
     bool Shader::load(const char * const vertexShaderFilePath,const char * const fragmentShaderFilePath) {
         if(m_shaderProgram==0&&m_referenceCount==nullptr) {
@@ -69,7 +56,16 @@ namespace gle {
 
     Shader::~Shader()
     {
-        addReference(-1);
-        tryToDestroyProgram();
+        commonDestructor();
+    }
+
+    void Shader::commonDestructor() {
+        if(m_referenceCount) {
+            (*m_referenceCount)--;
+            if((*m_referenceCount)==0) {
+                glDeleteProgram(m_shaderProgram);
+                delete m_referenceCount;
+            }
+        }
     }
 }

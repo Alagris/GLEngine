@@ -1,27 +1,35 @@
 #include "assimp_copy_data.h"
 #include <assimp/mesh.h>
+
+
 namespace gle {
 
 
-    void copyVertices(const aiVector3D *const meshVertices,const unsigned int numVertices,GLfloat *const destination ) {
-        for(unsigned int i=0,j=0; i<numVertices; i++,j+=3) {
+    const unsigned int copyVertices(const aiVector3D *const meshVertices,const unsigned int numVertices,GLfloat *const destination ) {
+        unsigned int j=0;
+        for(unsigned int i=0; i<numVertices; i++,j+=3) {
             destination[j]=meshVertices[i].x;
             destination[j+1]=meshVertices[i].y;
             destination[j+2]=meshVertices[i].z;
         }
+        return j;
     }
 
-    void copyColorVertices(const aiColor4D *const meshColors,const unsigned int numVertices,GLfloat *const destination ) {
-        for(unsigned int i=0,j=0; i<numVertices; i++,j+=4) {
+    const unsigned int copyColorVertices(const aiColor4D *const meshColors,const unsigned int numVertices,GLfloat *const destination ) {
+        unsigned int j=0;
+        for(unsigned int i=0; i<numVertices; i++,j+=4) {
             destination[j]=meshColors[i].r;
             destination[j+1]=meshColors[i].g;
             destination[j+2]=meshColors[i].b;
             destination[j+3]=meshColors[i].a;
         }
+        return j;
     }
 
-    void copyIndices(const aiFace *const meshFaces,const unsigned int numFaces,const unsigned int numIndicesPerFace,GLuint *const destination) {
-        for(unsigned int i=0,j=0; i<numFaces; i++) {
+
+    const unsigned int copyIndices(const aiFace *const meshFaces,const unsigned int numFaces,const unsigned int numIndicesPerFace,GLuint *const destination) {
+        unsigned int j=0;
+        for(unsigned int i=0; i<numFaces; i++) {
             if(meshFaces[i].mNumIndices==numIndicesPerFace) {
                 unsigned int * indices =meshFaces[i].mIndices;
                 for(unsigned int k=0; k<numIndicesPerFace; k++,j++) {
@@ -29,5 +37,25 @@ namespace gle {
                 }
             }
         }
+        return j;
     }
+
+
+    const unsigned int copyTexture2DVertices(const aiVector3D *const meshVertices,const unsigned int numVertices,GLfloat *const destination ) {
+        unsigned int j=0;
+        for(unsigned int i=0,j=0; i<numVertices; i++,j+=2) {
+            destination[j]=meshVertices[i].x;
+            destination[j+1]=meshVertices[i].y;
+        }
+        return j;
+    }
+
+    const unsigned int copyTexture1DVertices(const aiVector3D *const meshVertices,const unsigned int numVertices,GLfloat *const destination ) {
+        unsigned int i=0;
+        for(; i<numVertices; i++) {
+            destination[i]=meshVertices[i].x;
+        }
+        return  i;
+    }
+
 }

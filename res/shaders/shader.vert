@@ -1,14 +1,35 @@
 #version 330
+//
+//layout(location=0) in vec3 position;
+//layout(location=1) in vec4 color;
+//layout(location=2) in vec2 textureUV;
+//
+////out vec4 colorV;
+//out vec2 outUV;
+//uniform mat4 MVP;
+//
+//void main()
+//{
+//    outUV=textureUV;
+//	//colorV = color;
+//    gl_Position = MVP*vec4(position, 1.0);
+//}
 
-layout(location=0) in vec3 position;
-layout(location=1) in vec4 color;
+// Input vertex data, different for all executions of this shader.
+layout(location = 0) in vec3 vertexPosition_modelspace;
+layout(location = 2) in vec2 vertexUV;
 
-out vec4 colorV;
+// Output data ; will be interpolated for each fragment.
+out vec2 UV;
+
+// Values that stay constant for the whole mesh.
 uniform mat4 MVP;
 
-void main()
-{
-//	colorV = color;
-    colorV=vec4(1.0,0.0,1.0,1.0);
-    gl_Position = MVP*vec4(position, 1.0);
+void main(){
+
+    // Output position of the vertex, in clip space : MVP * position
+    gl_Position =  MVP * vec4(vertexPosition_modelspace,1);
+
+    // UV of the vertex. No special space for this one.
+    UV = vertexUV;
 }

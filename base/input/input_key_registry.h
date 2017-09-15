@@ -30,22 +30,12 @@ namespace gle {
         struct Pimpl;
         struct RegisteredKey;
         Pimpl * pimpl;
-//        RegisteredKey * m_root;
         GLFWkeyfun getKey(const int key) const;
 
         InputKeyRegistry(const InputKeyRegistry & );
         InputKeyRegistry& operator=(const  InputKeyRegistry& );
         size_t getPos(const int key)const;
         RegisteredKey * getRegister(const int key)const;
-//        bool setKey(RegisteredKey ** keyptr,const GLFWkeyfun newCallbackFunc);
-//        RegisteredKey ** getRegister(const int key);
-//        inline void deleteSingleRegister(const RegisteredKey *const key);
-//        void deleteRegister(const RegisteredKey *const key) ;
-//        void bindRegisters(RegisteredKey ** const origin, RegisteredKey * const tail);
-//        /**Will crash if origin or tail is nullptr (or nothing will happen if origin is the last/root element of list)*/
-//        inline void bindRegisters(RegisteredKey * const origin, RegisteredKey * const tail) ;
-//        inline void bindRegisters(RegisteredKey **const origin, const int tailKey,const GLFWkeyfun tailCallbackFunc);
-//        inline void bindRegisters(RegisteredKey *const origin, const int tailKey,const GLFWkeyfun tailCallbackFunc) ;
 
     };
 }

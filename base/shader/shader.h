@@ -21,9 +21,7 @@ namespace gle {
       protected:
 
       private:
-        void addReference(const unsigned int count) const;
-        void tryToDestroyProgram() const;
-
+        void commonDestructor();
         GLuint m_shaderProgram;
         unsigned int * m_referenceCount;
     };
