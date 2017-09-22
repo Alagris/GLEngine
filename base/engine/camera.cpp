@@ -30,7 +30,7 @@ namespace gle {
             -getLocationX(),-getLocationY(),-getLocationZ(),
             1/getScaleWidth(),1/getScaleHeight(),1/getScaleDepth(),
             -getRotation().x,-getRotation().y,-getRotation().z,getRotation().w,
-            m_viewMatrix);
+            m_modelMatrix);
     }
 
     void Camera::setPerspectiveProjection(const GLfloat left,
@@ -53,11 +53,7 @@ namespace gle {
 
 
     void Camera::updateViewProjectionMatrix() {
-        multiplyMat4ByMat4(m_projection,m_viewMatrix,m_viewProjection);
-    }
-
-    void Camera::getModelViewProjectionMatrix(const Mat4 modelMatrix,Mat4  outputModelViewProjection) const {
-        multiplyMat4ByMat4( m_viewProjection,modelMatrix,outputModelViewProjection);
+        multiplyMat4ByMat4(m_projection,m_modelMatrix,m_viewProjection);
     }
 
     void Camera::printViewProjectionMatrix()const {
@@ -67,6 +63,6 @@ namespace gle {
         printMat4(m_projection);
     }
     void Camera::printViewMatrix()const {
-        printMat4(m_viewMatrix);
+        printMat4(m_modelMatrix);
     }
 }

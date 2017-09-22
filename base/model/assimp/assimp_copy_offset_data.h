@@ -13,10 +13,10 @@ namespace gle {
 //    inline const unsigned int copyColorVertices(const aiMesh *const mesh,const unsigned int colorSetIndex,GLfloat *const destination,const unsigned int offset ) {
 //        return copyColorVertices(mesh->mColors[colorSetIndex],mesh->mNumVertices,destination,offset);
 //    }
-    const unsigned int copyIndices(const aiFace *const meshFaces,const unsigned int numFaces,const unsigned int numIndicesPerFace,GLuint *const destination,const unsigned int offset );
-    inline const unsigned int copyIndices(const aiMesh *const mesh,const unsigned int numIndicesPerFace,GLuint *const destination,const unsigned int offset ) {
-        return copyIndices(mesh->mFaces,mesh->mNumFaces,numIndicesPerFace,destination,offset);
-    }
+//    const unsigned int copyIndices(const aiFace *const meshFaces,const unsigned int numFaces,const unsigned int numIndicesPerFace,GLuint *const destination,const unsigned int offset );
+//    inline const unsigned int copyIndices(const aiMesh *const mesh,const unsigned int numIndicesPerFace,GLuint *const destination,const unsigned int offset ) {
+//        return copyIndices(mesh->mFaces,mesh->mNumFaces,numIndicesPerFace,destination,offset);
+//    }
 //    inline const unsigned int copyTexture3DVertices(const aiVector3D *const  meshTextureVertices,const unsigned int numVertices,GLfloat *const destination ,const unsigned int offset){
 //        return copyVertices( meshTextureVertices, numVertices, destination,offset);
 //    }

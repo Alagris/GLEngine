@@ -1,10 +1,11 @@
 #ifndef MODEL_DATA_H
 #define MODEL_DATA_H
-
 #include "matrix_math_types.h"
+#include "model_base.h"
+
 namespace gle {
 
-    class ModelData
+    class ModelData:public ModelBase
     {
       public:
         ModelData();

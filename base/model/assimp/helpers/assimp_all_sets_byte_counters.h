@@ -23,8 +23,8 @@ namespace gle {
     ////////////////
     //mixed
     ////////////////
-    const unsigned int countTexColVerAllSetsBytesInMesh(const aiMesh*const mesh);
-    const unsigned int countTexColVerAllSetsBytesInMeshesOfScene(const aiScene*const scene);
-    const unsigned int countTexColVerAllSetsBytesInMeshesOfScenes(const aiScene*const*const scenes,unsigned int scenesCount);
+    const unsigned int countTexColVerNorAllSetsBytesInMesh(const aiMesh*const mesh);
+    const unsigned int countTexColVerNorAllSetsBytesInMeshesOfScene(const aiScene*const scene);
+    const unsigned int countTexColVerNorAllSetsBytesInMeshesOfScenes(const aiScene*const*const scenes,unsigned int scenesCount);
 }
 #endif // ASSIMP_ALL_SETS_BYTE_COUNTERS_H

@@ -29,33 +29,43 @@ namespace gle {
     returns VBO ID*/
 
 
+    /**size measured in bytes*/
     const GLuint generateBuffer_glb(const GLenum target,const GLsizeiptr size,const GLvoid * data,const GLenum usage,const GLuint bufferID);
+    /**size measured in bytes*/
     inline const GLuint generateEBO_glb(const GLsizeiptr size,const GLuint * const indices,const GLenum usage,const GLuint bufferID) {
          return generateBuffer_glb(GL_ELEMENT_ARRAY_BUFFER,size,indices,usage,bufferID);
     }
+    /**size measured in bytes*/
     inline const GLuint generateVBO_glb(const GLsizeiptr size,const GLfloat * const vertices,const GLenum usage,const GLuint bufferID) {
          return generateBuffer_glb(GL_ARRAY_BUFFER,size,vertices,usage,bufferID);
     }
+    /**size measured in bytes*/
     inline const GLuint generateEmptyEBO_glb(const GLsizeiptr size,const GLenum usage,const GLuint bufferID) {
          return generateBuffer_glb(GL_ELEMENT_ARRAY_BUFFER,size,nullptr,usage,bufferID);
     }
+    /**size measured in bytes*/
     inline const GLuint generateEmptyVBO_glb(const GLsizeiptr size,const GLenum usage,const GLuint bufferID) {
          return generateBuffer_glb(GL_ARRAY_BUFFER,size,nullptr,usage,bufferID);
     }
+
     const GLuint glGenBuffer();
+    /**size measured in bytes*/
     inline GLuint generateBuffer_glb(const GLenum target,const GLsizeiptr size,const GLvoid * data,const GLenum usage){
         return generateBuffer_glb(target,size,data,usage,glGenBuffer());
     }
-
+    /**size measured in bytes*/
     inline const GLuint generateEBO_glb(const GLsizeiptr size,const GLuint * const indices,const GLenum usage) {
         return generateBuffer_glb(GL_ELEMENT_ARRAY_BUFFER,size,indices,usage);
     }
+    /**size measured in bytes*/
     inline const GLuint generateVBO_glb(const GLsizeiptr size,const GLfloat * const vertices,const GLenum usage) {
         return generateBuffer_glb(GL_ARRAY_BUFFER,size,vertices,usage);
     }
+    /**size measured in bytes*/
     inline const GLuint generateEmptyEBO_glb(const GLsizeiptr size,const GLenum usage) {
         return generateBuffer_glb(GL_ELEMENT_ARRAY_BUFFER,size,nullptr,usage);
     }
+    /**size measured in bytes*/
     inline const GLuint generateEmptyVBO_glb(const GLsizeiptr size,const GLenum usage) {
         return generateBuffer_glb(GL_ARRAY_BUFFER,size,nullptr,usage);
     }

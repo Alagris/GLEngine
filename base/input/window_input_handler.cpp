@@ -1,8 +1,9 @@
 #include "window_input_handler.h"
-#include <GLFW/glfw3.h>
 #include "input_key_registry.h"
 #include <vector>
 #include <algorithm>
+
+#include <GLFW/glfw3.h>
 namespace gle {
 
     ////////////////

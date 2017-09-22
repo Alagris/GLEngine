@@ -16,6 +16,7 @@ namespace gle {
 
         VertexBufferObject(const GLsizei vertexArraySizeInElements,
                            const GLsizei colorArraySizeInElements,
+                           const GLsizei vertexNormalArraySizeInElements,
                            const GLsizei textureCoordArraySizeInElements,
                            const uint8_t textureDimentionality=2,
                            const vbo_offset initialOffset=0);
@@ -26,6 +27,7 @@ namespace gle {
         VertexBufferObject(const GLsizei vertexArraySizeInElements,
                            const unsigned int colorSetsNumber,
                            const GLsizei colorArraySizeInElements,
+                           const GLsizei vertexNormalArraySizeInElements,
                            const vbo_offset initialOffset,
                            const GLsizei textureSetsNumber);
       public:
@@ -37,6 +39,8 @@ namespace gle {
         const GLsizei getColorArraySizeInElements()const ;
         const unsigned int getColorSetsNumber() const ;
         const vbo_offset getColorArrayOffsetInBytes()const;
+        const GLsizei getVertexNormalArraySizeInElements()const;
+        const vbo_offset getVertexNormalArrayOffsetInBytes()const;
 
         const GLsizei getTextureArraySizeInElements(const unsigned int textureCoordSetIndex)const ;
         const unsigned int getTextureSetsNumber() const ;

@@ -41,6 +41,8 @@ namespace gle {
     }
 
 
+
+
 //    const unsigned int copyTexture2DVertices(const aiVector3D *const meshVertices,const unsigned int numVertices,GLfloat *const destination,const unsigned int offset ) {
 //        unsigned int j=0;
 //        for(unsigned int i=0,j=0; i<numVertices; i++,j+=2) {

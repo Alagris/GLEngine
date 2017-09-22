@@ -8,7 +8,7 @@ namespace gle {
 
     struct VaoVboEboPackage::Pimpl {
         Pimpl(const GLenum eboType,const bool deleteAutomatically):m_vao(deleteAutomatically),m_ebo(eboType) {}
-        Pimpl(const VertexArrayObject  & vao,const VertexBufferObject &vbo,const ElementBufferObject & ebo):
+        Pimpl(const VertexArrayObject  & vao,const std::shared_ptr<VertexBufferObject>  &vbo,const ElementBufferObject & ebo):
             m_vao(vao),m_ebo(ebo),m_vbos( {
             vbo
         }) {}
@@ -17,19 +17,19 @@ namespace gle {
         }
         VertexArrayObject m_vao;
         ElementBufferObject m_ebo;
-        std::vector<VertexBufferObject> m_vbos;
+        std::vector<std::shared_ptr<VertexBufferObject> > m_vbos;
     };
 
     VaoVboEboPackage::VaoVboEboPackage(const GLenum eboType,const bool deleteAutomatically):pimpl(new Pimpl(eboType,deleteAutomatically)) {}
 
-    VaoVboEboPackage::VaoVboEboPackage(const VertexArrayObject  & vao,const VertexBufferObject &vbo,const ElementBufferObject & ebo):pimpl(new Pimpl(vao,vbo,ebo)) {}
+    VaoVboEboPackage::VaoVboEboPackage(const VertexArrayObject  & vao,const std::shared_ptr<VertexBufferObject>  &vbo,const ElementBufferObject & ebo):pimpl(new Pimpl(vao,vbo,ebo)) {}
 
     VaoVboEboPackage::VaoVboEboPackage(const VertexArrayObject  & vao,const ElementBufferObject & ebo,const unsigned int vboCount):pimpl(new Pimpl(vao,ebo,vboCount)) {}
 
     const VertexArrayObject & VaoVboEboPackage::getVAO()const {
         return pimpl.get()->m_vao;
     }
-    const VertexBufferObject & VaoVboEboPackage::getVBO(const unsigned int index)const {
+    const std::shared_ptr<VertexBufferObject> & VaoVboEboPackage::getVBO(const unsigned int index)const {
         return pimpl.get()->m_vbos[index];
     }
     const ElementBufferObject & VaoVboEboPackage::getEBO()const {
@@ -41,28 +41,31 @@ namespace gle {
     void VaoVboEboPackage::setVAO(const VertexArrayObject &vao) {
         pimpl.get()->m_vao=vao;
     }
-    void VaoVboEboPackage::setVBO(const VertexBufferObject &vbo,const unsigned int index) {
+    void VaoVboEboPackage::setVBO(const std::shared_ptr<VertexBufferObject> & vbo,const unsigned int index) {
         pimpl.get()->m_vbos[index]=vbo;
     }
     void VaoVboEboPackage::setEBO(const ElementBufferObject &ebo) {
         pimpl.get()->m_ebo=ebo;
     }
-    void VaoVboEboPackage::addVBO(const VertexBufferObject & vbo) {
+    void VaoVboEboPackage::addVBO(const std::shared_ptr<VertexBufferObject> & vbo) {
         pimpl.get()->m_vbos.push_back(vbo);
     }
-    VertexBufferObject &  VaoVboEboPackage::getVBORef (const unsigned int index) {
+    void VaoVboEboPackage::reserveVBOsCapacity(const unsigned int capacity){
+        pimpl.get()->m_vbos.reserve(capacity);
+    }
+    std::shared_ptr<VertexBufferObject> &  VaoVboEboPackage::getVBORef (const unsigned int index) {
         return pimpl.get()->m_vbos[index];
     }
     ElementBufferObject & VaoVboEboPackage::getEBORef() {
         return pimpl.get()->m_ebo;
     }
-    VertexArrayObject &  VaoVboEboPackage::getVAORef() {
+    VertexArrayObject  &  VaoVboEboPackage::getVAORef() {
         return pimpl.get()->m_vao;
     }
-    VertexBufferObject * const VaoVboEboPackage::getVBOPtr(){
+    std::shared_ptr<VertexBufferObject>  * const VaoVboEboPackage::getVBOPtr(){
         return &(pimpl.get()->m_vbos[0]);
     }
-    const VertexBufferObject * const VaoVboEboPackage::getVBOPtr()const{
+    const std::shared_ptr<VertexBufferObject>  * const VaoVboEboPackage::getVBOPtr()const{
         return &(pimpl.get()->m_vbos[0]);
     }
 

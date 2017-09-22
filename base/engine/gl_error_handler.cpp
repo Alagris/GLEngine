@@ -1,9 +1,10 @@
-#include "gl_error_handler.h"
 #include <GL/glew.h>
-#include <GLFW/glfw3.h>
+#include "gl_error_handler.h"
 #include <iostream>
 #include <string>
 #include "gl_enum_to_string.h"
+
+#include <GLFW/glfw3.h>
 namespace gle {
     void receiveFromGLFW(int error, const char* description) {
         std::cerr<<"GLFW ERROR ("<< error<<"): "<<description<<std::endl;

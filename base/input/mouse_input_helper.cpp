@@ -1,7 +1,8 @@
 #include "mouse_input_helper.h"
-#include "GLFW/glfw3.h"
 #include "quaternion_computations.h"
 #include "vector_helpers.h"
+
+#include "GLFW/glfw3.h"
 namespace gle {
 
     void rotateQuaternionAccordingToMouseMovement(const double movementX,const double movementY,const double sensitivityInRadiansPerPixel,Vec3 & quaternion) {

@@ -1,5 +1,5 @@
-#include "gl_initializator.h"
 #include <GL/glew.h>
+#include "gl_initializator.h"
 #include <iostream>
 #include "display.h"
 #include "gl_error_handler.h"

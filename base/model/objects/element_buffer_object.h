@@ -3,8 +3,9 @@
 #include <GLFW/glfw3.h>
 #include "generatable.h"
 #include <memory>
+#include "offset_types.h"
 namespace gle {
-    typedef intptr_t ebo_offset;
+
 
     class ElementBufferObject:public Generatable {
       public:

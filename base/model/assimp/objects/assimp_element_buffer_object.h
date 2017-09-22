@@ -1,8 +1,9 @@
 #ifndef ASSIMP_ELEMENT_BUFFER_OBJECT_H
 #define ASSIMP_ELEMENT_BUFFER_OBJECT_H
+#include <GLFW/glfw3.h>
 #include "element_buffer_object.h"
 #include <assimp/mesh.h>
-#include <GLFW/glfw3.h>
+
 namespace gle {
     class AssimpElementBufferObject:public ElementBufferObject
     {

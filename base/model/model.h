@@ -16,29 +16,10 @@ namespace gle {
         void updateModelMatrix();
 
 
-        /////////////////////////
-        //non-const getters
-        /////////////////////////
-
-        inline GLfloat * getModelMatrix() {
-            return m_modelMatrix;
-        }
-
-
-        /////////////////////////
-        //const getters
-        /////////////////////////
-
-
-        inline const GLfloat * getModelMatrix() const {
-            return m_modelMatrix;
-        }
-
-
       protected:
 
       private:
-        Mat4 m_modelMatrix;
+
     };
 }
 #endif // MODEL_H

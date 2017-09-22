@@ -30,6 +30,15 @@
 #include "model_buffer_binders.h"
 #include "render_ready_package.h"
 #include "render_ready_package_helpers.h"
+#include "render_ready_package_renderer.h"
+#include "shader_lighting_data.h"
+#include "ambient_light_data.h"
+#include "vector_helpers.h"
+#include "ambient_light_helpers.h"
+#include "diffuse_light_helpers.h"
+#include "render_ready_root_node.h"
+#include "model_node_helpers.h"
+#include "shader_lighting_uniforms.h"
 GLfloat zNear = 2;
 GLfloat rest = 2;
 GLfloat zFar = -2;
@@ -37,7 +46,7 @@ gle::Camera cam(-rest,rest,rest,-rest,zNear,zFar,true);
 gle::Model modelMatrix1;
 gle::Mat4 mvpMatrix;
 gle::Shader shader;
-GLint mvp_handle;
+//GLint mvp_handle;
 gle::RenderReadyPackage rr;
 
 void moveLeft(GLFWwindow* window, int key, int scancode, int action, int mods) {
@@ -77,10 +86,14 @@ void farDown(GLFWwindow* window, int key, int scancode, int action, int mods) {
     cam.setPerspectiveProjection(-rest,rest,rest,-rest,zNear,zFar);
 }
 void scaleUp(GLFWwindow* window, int key, int scancode, int action, int mods) {
-    modelMatrix1.setScale(modelMatrix1.getScaleDepth()*1.1);
+    GLfloat n=rr.getRootNode(0).getLightingData().ambient.m_ambientLightStrength+0.02;
+    if(n<=1)rr.getRootNode(0).getLightingData().ambient.m_ambientLightStrength=n;
+    std::cout<<rr.getRootNode(0).getLightingData().ambient.m_ambientLightStrength<<"\n";
 }
 void scaleDown(GLFWwindow* window, int key, int scancode, int action, int mods) {
-    modelMatrix1.setScale(modelMatrix1.getScaleDepth()/1.1);
+    GLfloat n=rr.getRootNode(0).getLightingData().ambient.m_ambientLightStrength-0.02;
+    if(n>=0)rr.getRootNode(0).getLightingData().ambient.m_ambientLightStrength=n;
+    std::cout<<rr.getRootNode(0).getLightingData().ambient.m_ambientLightStrength<<"\n";
 }
 gle::Display * display;
 void mouseGrabTrigger(const int button,const int action,const int mods,const double x,const double y) {
@@ -118,14 +131,30 @@ void init(gle::Display & d) {
     glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
 //    gle::importModel("res/models/bicyclekeycollada.dae",rr,GL_STATIC_DRAW,0,-1,2,0,1,1,1);
-    gle::importModel("res/models/model.dae",rr,GL_STATIC_DRAW,0,-1,2,0,1,1,1);
-//    gle::importModel("res/models/dummy_obj.obj",rr,GL_STATIC_DRAW,0,-1,2,0,1,1,1);
-
+//    rr=gle::importModel("res/models/model.dae",GL_STATIC_DRAW);
+//    rr=gle::importModel("res/models/dummy_obj.obj",GL_STATIC_DRAW);
+    const char * arr[]={"res/models/dummy_obj.obj","res/models/model.dae","res/models/Militia-Adventurer-RIGGED.dae"};//,
+    rr=gle::importModels(arr ,3,GL_STATIC_DRAW);
     gle::unbindVAO();
     gle::unbindEBO();
     shader.load("res/shaders/shader.vert","res/shaders/shader.frag");
     shader.bind();
-    mvp_handle = glGetUniformLocation(shader.getID(), "MVP");
+
+
+    gle::setShaderVertexInputLocation(rr,shader.getID(),"inVertexPosition_modelspace");
+    gle::setShaderColorInputLocation(rr,shader.getID(),"inColor");
+    gle::setShaderTextureInputLocation(rr,shader.getID(),"inVertexUV");
+    gle::setShaderNormalInputLocation(rr,shader.getID(),"inVertexNormal");
+    gle::setShaderModelViewProjectionMatrixLocation(rr,shader.getID(),"MVP");
+    gle::setAmbientLightShaderInputLocation(rr.getLighting().ambient,shader.getID(),"ambientColor","ambientColorStrength");
+    gle::setDiffuseLightShaderInputLocation(rr.getLighting().diffuse,shader.getID(),"diffuseColor","diffuseLightPosition");
+    rr.getRootNode(0).getLightingData().ambient.m_ambientLightStrength=0.5;
+    rr.getRootNode(0).setDefaultColor(1,1,1,1);
+
+    rr.getRootNode(1).getLightingData().ambient.m_ambientLightStrength=0.5;
+    rr.getRootNode(1).setDefaultColor(1,0,0,1);
+//    gle::debugModelNodes(*rr.getRootNode(0).get().get());
+//    std::cout<<rr.getShaderColorInputLocation()<<"\n";
 }
 
 void update(gle::Display & d) {
@@ -140,10 +169,15 @@ void render(gle::Display & d) {
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     if(shader.getID()!=0 && gle::hasVAO_ID(rr.getData()) ) {
-        cam.getModelViewProjectionMatrix(modelMatrix1.getModelMatrix(),mvpMatrix);
-        glUniformMatrix4fv(mvp_handle, 1, GL_TRUE, mvpMatrix);
+//        cam.getModelViewProjectionMatrix(modelMatrix1.getModelMatrix(),mvpMatrix);
+//        glUniformMatrix4fv(mvp_handle, 1, GL_TRUE, mvpMatrix);
 //        gle::renderEBO(rr,GL_TRIANGLES,0);
-        gle::renderAllEBO(rr,GL_TRIANGLES);
+//        gle::renderAllEBO(rr,GL_TRIANGLES);
+        gle::renderAllNodes(rr,GL_TRIANGLES,cam.getViewProjectionMatrix(),0);
+
+        gle::renderAllNodes(rr,GL_TRIANGLES,cam.getViewProjectionMatrix(),1);
+
+        gle::renderAllNodes(rr,GL_TRIANGLES,cam.getViewProjectionMatrix(),2);
     }
 
 

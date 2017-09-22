@@ -1,5 +1,6 @@
 #ifndef INPUT_KEY_REGISTRY_H
 #define INPUT_KEY_REGISTRY_H
+//#include <GL/glew.h>
 #include <GLFW/glfw3.h>
 namespace gle {
 

@@ -1,7 +1,7 @@
 #ifndef SHADER_H
 #define SHADER_H
 #include "bindable.h"
-#include "GLFW/glfw3.h"
+#include <GLFW/glfw3.h>
 namespace gle {
     class Shader:public Bindable
     {

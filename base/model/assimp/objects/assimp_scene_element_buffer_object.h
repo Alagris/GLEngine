@@ -4,7 +4,6 @@
 #include <assimp/scene.h>
 #include <GLFW/glfw3.h>
 namespace gle {
-    class VertexBufferObject;
     class AssimpSceneElementBufferObject:public ElementBufferObject
     {
       public:

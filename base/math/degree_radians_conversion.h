@@ -1,6 +1,6 @@
 #ifndef DEGREE_RADIANS_CONVERSION_H_INCLUDED
 #define DEGREE_RADIANS_CONVERSION_H_INCLUDED
-#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 namespace gle {
     /**This header conatins constants and a few small
     and frequently used funtions that could be easily

@@ -13,7 +13,7 @@ namespace gle {
     AssimpElementBufferObject::AssimpElementBufferObject():m_mesh(nullptr) {}
 
     AssimpElementBufferObject::AssimpElementBufferObject(const aiMesh*const mesh,const ebo_offset elementArrayOffset,const GLenum type):
-        ElementBufferObject(countIndicesElementsInMesh(mesh),type,elementArrayOffset),
+        ElementBufferObject(index::countElementsInMesh(mesh),type,elementArrayOffset),
         m_mesh(mesh) {}
 
     AssimpElementBufferObject::~AssimpElementBufferObject() {}
@@ -21,7 +21,7 @@ namespace gle {
     const GLuint AssimpElementBufferObject::generate(const GLuint reservedEBO_ID,const GLenum usage)  {
         if(m_mesh&& !m_hasBeenGenerated) {
             const ElementBufferObject & ebo = *this;
-            generateEBO_glb(m_mesh,usage,reservedEBO_ID,ebo,0);
+            index::generateEBO_glb(m_mesh,usage,reservedEBO_ID,ebo,0);
             unbindEBO();
             m_hasBeenGenerated=true;
         }

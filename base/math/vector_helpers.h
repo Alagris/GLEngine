@@ -26,6 +26,7 @@ namespace gle {
     inline void setVec3( Vec3 & destinationVector,const Vec3 & sourceVector){
         setVec3(destinationVector,sourceVector.x,sourceVector.y,sourceVector.z,sourceVector.w);
     }
+
 }
 
 #endif // VECTOR_HELPERS_H

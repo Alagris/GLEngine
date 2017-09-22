@@ -1,12 +1,12 @@
-#include "GL/glew.h"
+//#include "GL/glew.h"
 #include "assimp_subbuffers_offset_generators.h"
-#include "vertex_buffer_object.h"
-#include "assimp_converters.h"
-#include "vertex_buffer_object.h"
-#include "assimp_copy_offset_data.h"
-#include <memory>
-#include "vertex_buffer_object_helpers.h"
-#include "element_buffer_object.h"
+//#include "vertex_buffer_object.h"
+//#include "assimp_converters.h"
+//#include "vertex_buffer_object.h"
+//#include "assimp_copy_offset_data.h"
+//#include <memory>
+//#include "vertex_buffer_object_helpers.h"
+//#include "element_buffer_object.h"
 
 
 
@@ -60,23 +60,23 @@ namespace gle {
 //        if(mesh->mNumUVComponents[textureSetIndex]==1)generateTextures1DSubVBO(mesh,buffer,textureSetIndex,targetVbo,offset);
 //    }
 
-    const void generateIndicesSubEBO(const aiMesh*const mesh,GLuint *const buffer,const unsigned int meshIndex,const ElementBufferObject&targetEBO,const unsigned int numIndicesPerFace,unsigned int offset) {
-        copyIndices(mesh,numIndicesPerFace,buffer,offset);
-        glBufferSubData(GL_ELEMENT_ARRAY_BUFFER,
-                        targetEBO.getElementArrayOffsetInBytes(meshIndex),
-                        convertIndexElementsNumberToBytesNumber(targetEBO.getElementArraySizeInElements(meshIndex)),
-                        static_cast<void*>(buffer));
-    }
-    const void generateIndicesSubEBO(
-        const aiMesh*const mesh,
-        GLuint *const buffer,
-        const unsigned int meshIndex,
-        const ElementBufferObject&targetEBO,
-        const unsigned int numIndicesPerFace,
-        const VertexBufferObject & correspondingVBO)
-    {
-        generateIndicesSubEBO( mesh, buffer, meshIndex,targetEBO, numIndicesPerFace, correspondingVBO.getVertexArrayOffsetInBytes());
-    }
+//    const void generateIndicesSubEBO(const aiMesh*const mesh,GLuint *const buffer,const unsigned int meshIndex,const ElementBufferObject&targetEBO,const unsigned int numIndicesPerFace,unsigned int offset) {
+//        copyIndices(mesh,numIndicesPerFace,buffer,offset);
+//        glBufferSubData(GL_ELEMENT_ARRAY_BUFFER,
+//                        targetEBO.getElementArrayOffsetInBytes(meshIndex),
+//                        convertIndexElementsNumberToBytesNumber(targetEBO.getElementArraySizeInElements(meshIndex)),
+//                        static_cast<void*>(buffer));
+//    }
+//    const void generateIndicesSubEBO(
+//        const aiMesh*const mesh,
+//        GLuint *const buffer,
+//        const unsigned int meshIndex,
+//        const ElementBufferObject&targetEBO,
+//        const unsigned int numIndicesPerFace,
+//        const VertexBufferObject & correspondingVBO)
+//    {
+//        generateIndicesSubEBO( mesh, buffer, meshIndex,targetEBO, numIndicesPerFace, correspondingVBO.getVertexArrayOffsetInBytes());
+//    }
 
 
 
@@ -135,19 +135,19 @@ namespace gle {
 //    }
 
 
-    const void generateIndicesSubEBO(const aiMesh*const mesh,const unsigned int meshIndex,const ElementBufferObject&targetEBO,const unsigned int numIndicesPerFace,unsigned int offset) {
-        const unsigned int size=targetEBO.getElementArraySizeInElements(meshIndex);
-        if(size==0)return;
-        std::unique_ptr<GLuint[]> bufPtr(new GLuint[size]);
-        generateIndicesSubEBO(mesh,bufPtr.get(),meshIndex,targetEBO,numIndicesPerFace,offset);
-    }
-    const void generateIndicesSubEBO(
-        const aiMesh*const mesh,
-        const unsigned int meshIndex,
-        const ElementBufferObject&targetEBO,
-        const unsigned int numIndicesPerFace,
-        const VertexBufferObject & correspondingVBO)
-    {
-        generateIndicesSubEBO( mesh, meshIndex,targetEBO,numIndicesPerFace,correspondingVBO.getVertexArrayOffsetInBytes()) ;
-    }
+//    const void generateIndicesSubEBO(const aiMesh*const mesh,const unsigned int meshIndex,const ElementBufferObject&targetEBO,const unsigned int numIndicesPerFace,unsigned int offset) {
+//        const unsigned int size=targetEBO.getElementArraySizeInElements(meshIndex);
+//        if(size==0)return;
+//        std::unique_ptr<GLuint[]> bufPtr(new GLuint[size]);
+//        generateIndicesSubEBO(mesh,bufPtr.get(),meshIndex,targetEBO,numIndicesPerFace,offset);
+//    }
+//    const void generateIndicesSubEBO(
+//        const aiMesh*const mesh,
+//        const unsigned int meshIndex,
+//        const ElementBufferObject&targetEBO,
+//        const unsigned int numIndicesPerFace,
+//        const VertexBufferObject & correspondingVBO)
+//    {
+//        generateIndicesSubEBO( mesh, meshIndex,targetEBO,numIndicesPerFace,correspondingVBO.getVertexArrayOffsetInBytes()) ;
+//    }
 }

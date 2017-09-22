@@ -7,19 +7,19 @@
 
 1503316934 /mnt/personal/my/src/C++/opengl/GLEngine/base/engine/renderable_interface.h
 
-1504299822 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/base_runner.cpp
+1505770451 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/base_runner.cpp
 	"base_runner.h"
 	"display.h"
-	<GLFW/glfw3.h>
 	<iostream>
+	<GLFW/glfw3.h>
 
 1501014953 /mnt/personal/my/src/C++/opengl/GLEngine/base/engine/base_runner.h
 
-1504698487 /mnt/personal/my/src/C++/opengl/GLEngine/base/engine/display.h
+1505745476 /mnt/personal/my/src/C++/opengl/GLEngine/base/engine/display.h
 	<GLFW/glfw3.h>
 	"bindable.h"
 
-1504636986 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/camera.cpp
+1505817259 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/camera.cpp
 	"camera.h"
 	"matrix_projection_computations.h"
 	"matrix_computations.h"
@@ -27,14 +27,14 @@
 	"matrix_helpers.h"
 	"quaternion_computations.h"
 
-1504028252 /mnt/personal/my/src/C++/opengl/GLEngine/base/engine/camera.h
+1505817214 /mnt/personal/my/src/C++/opengl/GLEngine/base/engine/camera.h
 	"model_data.h"
 
-1504028113 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/model.h
+1505553463 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/model.h
 	"model_data.h"
 
-1504633310 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/matrix_math_types.h
-	<GL/glew.h>
+1506009797 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/matrix_math_types.h
+	<GLFW/glfw3.h>
 
 1503431977 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/matrix_projection_computations.h
 	"matrix_math_types.h"
@@ -42,7 +42,7 @@
 1500925298 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/matrix_computations.h
 	"matrix_math_types.h"
 
-1504017608 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/matrix_helpers.h
+1505754479 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/matrix_helpers.h
 	"matrix_math_types.h"
 
 1505036636 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/display.cpp
@@ -53,7 +53,7 @@
 	<iostream>
 	"window_input_handler.h"
 
-1505149498 /mnt/personal/my/src/C++/opengl/GLEngine/base/input/input_key_registry.h
+1505745490 /mnt/personal/my/src/C++/opengl/GLEngine/base/input/input_key_registry.h
 	<GLFW/glfw3.h>
 
 1501012716 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/display_operations.cpp
@@ -62,23 +62,23 @@
 
 1501012648 /mnt/personal/my/src/C++/opengl/GLEngine/base/engine/display_operations.h
 
-1500985082 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/gl_error_handler.cpp
-	"gl_error_handler.h"
+1505744962 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/gl_error_handler.cpp
 	<GL/glew.h>
-	<GLFW/glfw3.h>
+	"gl_error_handler.h"
 	<iostream>
 	<string>
 	"gl_enum_to_string.h"
+	<GLFW/glfw3.h>
 
 1500898092 /mnt/personal/my/src/C++/opengl/GLEngine/base/engine/gl_error_handler.h
 
-1504091740 /mnt/personal/my/src/C++/opengl/GLEngine/base/util/gl_enum_to_string.h
+1505745728 /mnt/personal/my/src/C++/opengl/GLEngine/base/util/gl_enum_to_string.h
 	<string>
 	<GLFW/glfw3.h>
 
-1500918451 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/gl_initializator.cpp
-	"gl_initializator.h"
+1505744986 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/gl_initializator.cpp
 	<GL/glew.h>
+	"gl_initializator.h"
 	<iostream>
 	"display.h"
 	"gl_error_handler.h"
@@ -86,7 +86,7 @@
 
 1500920045 /mnt/personal/my/src/C++/opengl/GLEngine/base/engine/gl_initializator.h
 
-1504698022 /mnt/personal/my/src/C++/opengl/GLEngine/base/input/window_input_handler.h
+1505745496 /mnt/personal/my/src/C++/opengl/GLEngine/base/input/window_input_handler.h
 	<GLFW/glfw3.h>
 
 1503316946 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/renderable_interface.cpp
@@ -109,12 +109,12 @@
 	<vector>
 	<algorithm>
 
-1504698001 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/input/window_input_handler.cpp
+1505745013 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/input/window_input_handler.cpp
 	"window_input_handler.h"
-	<GLFW/glfw3.h>
 	"input_key_registry.h"
 	<vector>
 	<algorithm>
+	<GLFW/glfw3.h>
 
 1504032475 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/math/basic_matrix_transformations.cpp
 	"basic_matrix_transformations.h"
@@ -126,10 +126,10 @@
 	"matrix_math_types.h"
 	"degree_radians_conversion.h"
 
-1500922926 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/degree_radians_conversion.h
-	<GL/glew.h>
+1505745508 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/degree_radians_conversion.h
+	<GLFW/glfw3.h>
 
-1504012420 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/vector_helpers.h
+1505903161 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/vector_helpers.h
 	"matrix_math_types.h"
 
 1503768964 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/math/compound_matrix_transformations.cpp
@@ -187,10 +187,10 @@
 	"trigonometry_helpers.h"
 	<math.h>
 
-1503595520 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/trigonometry_helpers.h
+1505745527 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/trigonometry_helpers.h
 	<GLFW/glfw3.h>
 
-1504012308 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/math/vector_helpers.cpp
+1505903175 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/math/vector_helpers.cpp
 	"vector_helpers.h"
 	<math.h>
 
@@ -207,22 +207,22 @@
 1505394500 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/model_buffer_generators.h
 	<GLFW/glfw3.h>
 
-1504034321 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/shader_compiler.cpp
+1505745806 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/shader_compiler.cpp
+	<GL/glew.h>
 	"shader_compiler.h"
 	<string>
 	<iostream>
 	"gl_enum_to_string.h"
 	"file_reader.h"
 
-1500927162 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/shader_compiler.h
-	<GL/glew.h>
+1505745688 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/shader_compiler.h
 	<GLFW/glfw3.h>
 
 1505035760 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/util/gl_enum_to_string.cpp
 	"gl_enum_to_string.h"
 	"switch_case_enum_to_string.h"
 
-1505500476 source:/mnt/personal/my/src/C++/opengl/GLEngine/main.cpp
+1506086774 source:/mnt/personal/my/src/C++/opengl/GLEngine/main.cpp
 	<GL/glew.h>
 	<iostream>
 	"base/engine/gl_initializator.h"
@@ -255,9 +255,19 @@
 	"model_buffer_binders.h"
 	"render_ready_package.h"
 	"render_ready_package_helpers.h"
+	"render_ready_package_renderer.h"
+	"shader_lighting_data.h"
+	"ambient_light_data.h"
+	"vector_helpers.h"
+	"ambient_light_helpers.h"
+	"diffuse_light_helpers.h"
+	"render_ready_root_node.h"
+	"model_node_helpers.h"
+	"shader_lighting_uniforms.h"
 
-1504694166 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/model_data.h
+1505745677 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/model_data.h
 	"matrix_math_types.h"
+	"model_base.h"
 
 1504694220 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/model_data.cpp
 	"model_data.h"
@@ -272,19 +282,20 @@
 
 1504034671 /mnt/personal/my/src/C++/opengl/GLEngine/base/engine/bindable.h
 
-1505208497 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/shader.cpp
+1505745797 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/shader.cpp
+	<GL/glew.h>
 	"shader_compiler.h"
 	"shader.h"
 
-1505208494 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/shader.h
+1505745682 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/shader.h
 	"bindable.h"
-	"GLFW/glfw3.h"
+	<GLFW/glfw3.h>
 
-1504986831 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/input/mouse_input_helper.cpp
+1505745004 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/input/mouse_input_helper.cpp
 	"mouse_input_helper.h"
-	"GLFW/glfw3.h"
 	"quaternion_computations.h"
 	"vector_helpers.h"
+	"GLFW/glfw3.h"
 
 1504641329 /mnt/personal/my/src/C++/opengl/GLEngine/base/input/mouse_input_helper.h
 	"matrix_math_types.h"
@@ -308,10 +319,11 @@
 
 1504785440 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/assimp_structs.h
 
-1505497112 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/assimp_loader.cpp
+1506086390 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/assimp_loader.cpp
 	"GL/glew.h"
 	"assimp_loader.h"
 	<assimp/Importer.hpp>
+	<assimp/cimport.h>
 	<assimp/scene.h>
 	<assimp/postprocess.h>
 	<iostream>
@@ -326,8 +338,13 @@
 	"vao_vbo_ebo_package_helpers.h"
 	"render_ready_package.h"
 	"render_ready_package_helpers.h"
+	"assimp_model_node.h"
+	<vector>
+	"assimp_scenes_vao_vbo_ebo_package.h"
+	"render_ready_root_node.h"
+	<memory>
 
-1505404684 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/assimp_loader.h
+1505916761 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/assimp_loader.h
 	<GLFW/glfw3.h>
 
 1505123989 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/assimp_buffer_generators.cpp
@@ -342,13 +359,12 @@
 	<GLFW/glfw3.h>
 	<assimp/mesh.h>
 
-1505295020 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/assimp_copy_data.h
+1506074385 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/assimp_copy_data.h
 	<GLFW/glfw3.h>
-	"assimp/mesh.h"
-
-1505411220 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/assimp_copy_data.cpp
-	"assimp_copy_data.h"
 	<assimp/mesh.h>
+
+1506018755 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/assimp_copy_data.cpp
+	"assimp_copy_data.h"
 
 1505300457 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/vertex_array_object.h
 	<GLFW/glfw3.h>
@@ -439,13 +455,13 @@
 	<GL/glew.h>
 	"vertex_attrib_helpers.h"
 
-1504955375 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/vertex_attrib_helpers.h
+1505745695 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/vertex_attrib_helpers.h
 	<GLFW/glfw3.h>
 
 1504956174 /mnt/personal/my/src/C++/opengl/GLEngine/base/util/exit_exception.h
 	<exception>
 
-1505492123 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/vertex_attrib_pointer_setup.cpp
+1505853996 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/vertex_attrib_pointer_setup.cpp
 	<GL/glew.h>
 	"vertex_attrib_pointer_setup.h"
 	"vertex_buffer_object.h"
@@ -453,8 +469,9 @@
 	"assimp_constants.h"
 	"vertex_buffer_object_helpers.h"
 
-1505386010 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/vertex_attrib_pointer_setup.h
+1505845444 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/vertex_attrib_pointer_setup.h
 	<GLFW/glfw3.h>
+	"shader_types.h"
 
 1504954534 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/util/exit_exception.cpp
 	"exit_exception.h"
@@ -686,39 +703,38 @@
 	<assimp/scene.h>
 	<GLFW/glfw3.h>
 
-1505470775 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_counters.h
+1506025501 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_counters.h
 	<assimp/scene.h>
+	"assimp_helpers.h"
 
-1505474292 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_buffer_generators.h
+1506022660 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_buffer_generators.h
 	<GLFW/glfw3.h>
 	<assimp/mesh.h>
 
-1505313633 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_vertex_array_object_generators.h
-	<assimp/mesh.h>
-	<assimp/scene.h>
-	<GLFW/glfw3.h>
+1505744428 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_vertex_array_object_generators.h
 
-1505302492 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_scene_buffer_generators.h
+1505745543 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_scene_buffer_generators.h
 	<GLFW/glfw3.h>
 	<assimp/scene.h>
 
-1505472207 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_subbuffer_generators.h
+1506071210 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_subbuffer_generators.h
 	<assimp/mesh.h>
 
-1505470751 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_elements_counters.h
+1506072340 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_elements_counters.h
 	<assimp/scene.h>
 
-1505206861 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_converters.h
+1506019533 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_converters.h
 	"assimp_constants.h"
 
-1505071898 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_constants.h
+1506018210 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_constants.h
 
-1505483133 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_buffer_generators.cpp
+1506070272 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_buffer_generators.cpp
 	"assimp_buffer_generators.h"
 	"model_buffer_generators.h"
 	"assimp_copy_data.h"
 	"assimp_converters.h"
 	"assimp_counters.h"
+	"assimp_helpers.h"
 	<memory>
 	"vertex_buffer_object.h"
 	"element_buffer_object.h"
@@ -731,10 +747,10 @@
 	"assimp_max_counters.h"
 	<memory>
 
-1505412271 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_max_counters.h
+1506073690 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_max_counters.h
 	<assimp/scene.h>
 
-1505484936 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_subbuffer_generators.cpp
+1506072082 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_subbuffer_generators.cpp
 	<GL/glew.h>
 	"assimp_subbuffer_generators.h"
 	"vertex_buffer_object.h"
@@ -756,20 +772,21 @@
 1505395034 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/vertex_array_object_helpers.h
 	<GLFW/glfw3.h>
 
-1505332788 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/vertex_buffer_object.h
+1505745647 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/vertex_buffer_object.h
 	<GLFW/glfw3.h>
 	<memory>
 	"generatable.h"
 
-1505332188 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/vertex_buffer_object_helpers.h
+1505997194 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/vertex_buffer_object_helpers.h
 	<GLFW/glfw3.h>
+	"offset_types.h"
 
-1505405555 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_vao_vbo_ebo_package.h
+1505745593 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_vao_vbo_ebo_package.h
 	"vao_vbo_ebo_package.h"
 	<assimp/mesh.h>
 	<GLFW/glfw3.h>
 
-1505485284 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/vao_vbo_ebo_package.h
+1505998570 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/vao_vbo_ebo_package.h
 	<memory>
 	<GLFW/glfw3.h>
 
@@ -782,45 +799,46 @@
 	"vertex_attrib_pointer_setup.h"
 	"vertex_buffer_object_helpers.h"
 
-1505421362 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_vertex_buffer_object.h
+1505745596 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_vertex_buffer_object.h
 	"vertex_buffer_object.h"
 	<GLFW/glfw3.h>
 	<assimp/mesh.h>
 
-1505332610 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_element_buffer_object.h
+1505745431 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_element_buffer_object.h
+	<GLFW/glfw3.h>
 	"element_buffer_object.h"
 	<assimp/mesh.h>
-	<GLFW/glfw3.h>
 
-1505482893 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/element_buffer_object.h
+1505997236 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/element_buffer_object.h
 	<GLFW/glfw3.h>
 	"generatable.h"
 	<memory>
+	"offset_types.h"
 
-1505425758 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_byte_counters.cpp
+1506072399 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_byte_counters.cpp
 	"assimp_byte_counters.h"
 	"assimp_elements_counters.h"
 	"assimp_converters.h"
 
-1505467144 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_byte_counters.h
+1506070653 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_byte_counters.h
 	<assimp/scene.h>
+	<assimp/mesh.h>
 
-1505471060 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_counters.cpp
+1506072423 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_counters.cpp
 	"assimp_counters.h"
 	<assimp/scene.h>
 
-1505470732 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_elements_counters.cpp
+1506072512 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_elements_counters.cpp
 	"assimp_elements_counters.h"
 	"assimp_counters.h"
 	"assimp_converters.h"
 
-1505412293 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_max_counters.cpp
+1506073711 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_max_counters.cpp
 	"assimp_max_counters.h"
 	"assimp_counters.h"
-	"assimp_converters.h"
 	"max.h"
 
-1505483173 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_element_buffer_object.cpp
+1506073959 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_element_buffer_object.cpp
 	"assimp_element_buffer_object.h"
 	"assimp_elements_counters.h"
 	"assimp_buffer_generators.h"
@@ -830,7 +848,7 @@
 	"model_buffer_generators.h"
 	"assimp_subbuffer_generators.h"
 
-1505492344 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_scene_element_buffer_object.cpp
+1506074027 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_scene_element_buffer_object.cpp
 	"assimp_scene_element_buffer_object.h"
 	"assimp_elements_counters.h"
 	"assimp_subbuffer_generators.h"
@@ -839,7 +857,7 @@
 	"model_buffer_binders.h"
 	"vertex_buffer_object.h"
 
-1505492336 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_scene_element_buffer_object.h
+1505927963 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_scene_element_buffer_object.h
 	"element_buffer_object.h"
 	<assimp/scene.h>
 	<GLFW/glfw3.h>
@@ -847,7 +865,7 @@
 1505302715 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/element_buffer_object_helpers.h
 	<GLFW/glfw3.h>
 
-1505404977 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_vao_vbo_ebo_package.cpp
+1505998787 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_vao_vbo_ebo_package.cpp
 	"assimp_vao_vbo_ebo_package.h"
 	"vertex_array_object.h"
 	"vertex_buffer_object.h"
@@ -855,7 +873,7 @@
 	"assimp_vertex_buffer_object.h"
 	"vertex_array_object_helpers.h"
 
-1505492492 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_vertex_buffer_object.cpp
+1506074160 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_vertex_buffer_object.cpp
 	"assimp_vertex_buffer_object.h"
 	"vertex_buffer_object_helpers.h"
 	"assimp_subbuffer_generators.h"
@@ -876,7 +894,7 @@
 	"assimp_converters.h"
 	"max.h"
 
-1505487881 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/vao_vbo_ebo_package.cpp
+1505998857 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/vao_vbo_ebo_package.cpp
 	<GL/glew.h>
 	"vao_vbo_ebo_package.h"
 	"vertex_array_object.h"
@@ -900,77 +918,91 @@
 	"vertex_array_object.h"
 	"model_buffer_binders.h"
 
-1505331848 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/vertex_buffer_object.cpp
+1506074196 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/vertex_buffer_object.cpp
 	"vertex_buffer_object.h"
 	"assimp_elements_counters.h"
 	"assimp_converters.h"
+	<vector>
 
-1505396983 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/vertex_buffer_object_helpers.cpp
+1506074369 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/vertex_buffer_object_helpers.cpp
 	"vertex_buffer_object_helpers.h"
 	"vertex_buffer_object.h"
 	<iostream>
 	"assimp_converters.h"
+	"assimp_helpers.h"
 	"max.h"
 
-1505484926 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/vao_vbo_ebo_package_helpers.cpp
+1506000000 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/vao_vbo_ebo_package_helpers.cpp
 	<GL/glew.h>
 	"vao_vbo_ebo_package_helpers.h"
 	"vao_vbo_ebo_package.h"
 	"element_buffer_object.h"
 	"vertex_array_object.h"
 	"vertex_array_object_helpers.h"
+	"vertex_buffer_object_helpers.h"
 	"vertex_attrib_pointer_setup.h"
 	"model_buffer_binders.h"
+	<iostream>
+	"max.h"
 
-1505391045 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/vao_vbo_ebo_package_helpers.h
+1505999605 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/vao_vbo_ebo_package_helpers.h
 	<GLFW/glfw3.h>
+	"offset_types.h"
 
-1505495900 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_scene_vao_vbo_ebo_package.cpp
+1506000034 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_scene_vao_vbo_ebo_package.cpp
 	"assimp_scene_vao_vbo_ebo_package.h"
 	"vertex_array_object.h"
 	"assimp_scene_element_buffer_object.h"
 	"assimp_vertex_buffer_object.h"
 	"vertex_buffer_object_helpers.h"
 	"vertex_array_object_helpers.h"
-	"assimp_max_elements_counters.h"
-	"assimp_scene_empty_buffer_generators.h"
+	"model_buffer_generators.h"
+	"assimp_converters.h"
+	"vao_vbo_ebo_package_helpers.h"
 
-1505326599 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_scene_vao_vbo_ebo_package.h
+1505999922 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_scene_vao_vbo_ebo_package.h
 	"vao_vbo_ebo_package.h"
 	<assimp/scene.h>
 	<GLFW/glfw3.h>
+	"offset_types.h"
 
-1505493589 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/render_ready_package.cpp
+1505852407 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/render_ready_package.cpp
+	"model_base.h"
 	"render_ready_package.h"
 	"vao_vbo_ebo_package.h"
 	"vertex_buffer_object.h"
-
-1505496286 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/render_ready_package.h
 	<vector>
-	"vao_vbo_ebo_package.h"
+	"model_node.h"
+	"shader_lighting_data.h"
 
-1505500961 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/render_ready_package_helpers.cpp
+1505852290 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/render_ready_package.h
+	<memory>
+	"shader_types.h"
+
+1505851616 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/render_ready_package_helpers.cpp
 	<GL/glew.h>
 	"render_ready_package_helpers.h"
 	"render_ready_package.h"
 	"vertex_attrib_pointer_setup.h"
+	"vao_vbo_ebo_package.h"
 	"vao_vbo_ebo_package_helpers.h"
 	"model_buffer_binders.h"
-	<iostream>
+	"model_base.h"
+	"model_node.h"
 
-1505494074 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/render_ready_package_helpers.h
+1505851558 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/render_ready_package_helpers.h
 	<GLFW/glfw3.h>
 
-1505393138 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/model_buffer_binders.h
+1505745668 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/model_buffer_binders.h
 	<GLFW/glfw3.h>
 
 1505393123 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/model_buffer_binders.cpp
 	<GL/glew.h>
 	"model_buffer_binders.h"
 
-1505396951 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/max.h
+1505506838 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/max.h
 
-1505414757 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_max_elements_counters.cpp
+1506073815 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_max_elements_counters.cpp
 	"assimp_max_elements_counters.h"
 	"assimp_counters.h"
 	"assimp_elements_counters.h"
@@ -978,66 +1010,348 @@
 	"assimp_converters.h"
 	"max.h"
 
-1505412445 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_max_elements_counters.h
+1505510430 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_max_elements_counters.h
 	<assimp/scene.h>
 
-1505421263 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_empty_buffer_generators.cpp
+1506070626 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_empty_buffer_generators.cpp
 	"assimp_empty_buffer_generators.h"
 	"model_buffer_generators.h"
 	"assimp_converters.h"
 	"assimp_counters.h"
 
-1505420447 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_empty_buffer_generators.h
+1506070394 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_empty_buffer_generators.h
 	<GLFW/glfw3.h>
 	<assimp/mesh.h>
 
-1505468087 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_scene_empty_buffer_generators.cpp
+1506070692 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_scene_empty_buffer_generators.cpp
 	"assimp_scene_empty_buffer_generators.h"
-	"model_buffer_generators.h"
-	"assimp_byte_counters.h"
-	"assimp_all_sets_byte_counters.h"
 
-1505467855 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_scene_empty_buffer_generators.h
+1506070705 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_scene_empty_buffer_generators.h
 	<GLFW/glfw3.h>
 	<assimp/scene.h>
 
-1505467066 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_all_sets_byte_counters.cpp
+1506072238 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_all_sets_byte_counters.cpp
 	"assimp_all_sets_byte_counters.h"
-	"assimp_all_sets_elements_counters.h"
-	"assimp_converters.h"
-	"assimp_byte_counters.h"
 
-1505467019 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_all_sets_byte_counters.h
+1505510039 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_all_sets_byte_counters.h
 	<assimp/scene.h>
 
 1505426052 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_all_sets_elements_counters.h
 	<assimp/scene.h>
 
-1505466745 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_all_sets_elements_counters.cpp
+1506072302 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_all_sets_elements_counters.cpp
 	"assimp_all_sets_elements_counters.h"
-	"assimp_counters.h"
-	"assimp_converters.h"
 
-1505486888 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/assimp_copy_offset_data.cpp
+1505510915 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/assimp_copy_offset_data.cpp
 	"assimp_copy_offset_data.h"
 	<assimp/mesh.h>
 
-1505486814 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/assimp_copy_offset_data.h
+1506071628 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/assimp_copy_offset_data.h
 	<GLFW/glfw3.h>
 	"assimp/mesh.h"
 
-1505487792 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_subbuffers_offset_generators.cpp
-	"GL/glew.h"
+1506074425 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_subbuffers_offset_generators.cpp
 	"assimp_subbuffers_offset_generators.h"
-	"vertex_buffer_object.h"
-	"assimp_converters.h"
-	"vertex_buffer_object.h"
-	"assimp_copy_offset_data.h"
-	<memory>
-	"vertex_buffer_object_helpers.h"
-	"element_buffer_object.h"
 
-1505487762 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_subbuffers_offset_generators.h
+1506074456 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/generators/assimp_subbuffers_offset_generators.h
+
+1505553088 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/model_base.cpp
+	"model_base.h"
+
+1505745657 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/model_base.h
+	"matrix_math_types.h"
 	<GLFW/glfw3.h>
+
+1505987950 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/generators/model_buffer_generators.h
+	<GLFW/glfw3.h>
+
+1505745614 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/generators/generatable.h
+	<GLFW/glfw3.h>
+
+1505739993 /mnt/personal/my/src/C++/opengl/GLEngine/base/util/smartptr/deep_copy_pointer.h
+	<memory>
+
+1505332708 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/generators/generatable.cpp
+	<GL/glew.h>
+	"generatable.h"
+
+1505393792 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/generators/model_buffer_generators.cpp
+	<GL/glew.h>
+	"model_buffer_generators.h"
+	"model_buffer_binders.h"
+
+1504889877 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/generators/model_subbuffer_generators.cpp
+	<GL/glew.h>
+	"model_subbuffer_generators.h"
+
+1505745622 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/generators/model_subbuffer_generators.h
+	<GLFW/glfw3.h>
+
+1505754072 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/model_node.cpp
+	"model_node.h"
+
+1505756668 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/model_node.h
+	<vector>
+	<memory>
+	"model_base.h"
+
+1505739936 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/util/smartptr/deep_copy_pointer.cpp
+	"deep_copy_pointer.h"
+
+1505815799 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/assimp_model.cpp
+	"assimp_model.h"
+	"assimp_matrix_converter.h"
+	"matrix_generators.h"
+
+1505815844 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/assimp_model.h
+	"model_base.h"
+	<assimp/matrix4x4.h>
+
+1505994343 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/assimp_model_node.cpp
+	"assimp_model_node.h"
+	"assimp_model.h"
+	<assimp/scene.h>
 	<assimp/mesh.h>
+
+1505994357 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/assimp_model_node.h
+	"model_node.h"
+	<assimp/scene.h>
+
+1505754280 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_matrix_converter.h
+	<assimp/matrix4x4.h>
+	"matrix_math_types.h"
+
+1505754390 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_matrix_converter.cpp
+	"assimp_matrix_converter.h"
+	"matrix_helpers.h"
+
+1505761110 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/model_node_hepers.h
+
+1505761023 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/model_node_hepers.cpp
+	"model_node_hepers.h"
+	<iostream>
+	"model_node.h"
+
+1506007300 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/render/render_ready_package_renderer.cpp
+	<GL/glew.h>
+	"render_ready_package_helpers.h"
+	"render_ready_package_renderer.h"
+	"render_ready_package.h"
+	"vao_vbo_ebo_package_helpers.h"
+	"model_buffer_binders.h"
+	"model_node.h"
+	"matrix_computations.h"
+	"render_ready_root_node.h"
+	"shader_lighting_uniforms.h"
+	"shader_lighting_data.h"
+	"shader_lighting_helpers.h"
+
+1505941072 /mnt/personal/my/src/C++/opengl/GLEngine/base/render/render_ready_package_renderer.h
+	<GLFW/glfw3.h>
+	"matrix_math_types.h"
+
+1505817289 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/engine/camera_helpers.cpp
+	"camera_helpers.h"
+	"camera.h"
+	"matrix_computations.h"
+
+1505817318 /mnt/personal/my/src/C++/opengl/GLEngine/base/engine/camera_helpers.h
+	"matrix_math_types.h"
+
+1505827737 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/light/ambient_light_data.cpp
+	"ambient_light_data.h"
+
+1506006882 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/light/ambient_light_data.h
+	"matrix_math_types.h"
+
+1506000670 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/light/ambient_light_data_helpers.cpp
+	<GL/glew.h>
+	"ambient_light_data_helpers.h"
+	"ambient_light_data.h"
+	"ambient_light_uniforms.h"
+	"vector_helpers.h"
+	"vector_computations.h"
+	"vertex_attrib_helpers.h"
+
+1506000637 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/light/ambient_light_data_helpers.h
+	"shader_types.h"
+	"matrix_math_types.h"
+
+1505827511 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/shader_lighting_data.cpp
+	"shader_lighting_data.h"
+
+1505827758 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/shader_lighting_data.h
+
+1505826876 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/vertex_attrib_lighting_setup.cpp
+	"vertex_attrib_lighting_setup.h"
+
+1505828583 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/vertex_attrib_lighting_setup.h
+
+1505845243 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/shader_types.h
+
+1506008407 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/light/shader_lighting_data.h
+	"ambient_light_data.h"
+	"diffuse_light_data.h"
+
+1506006437 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/light/shader_lighting_data.cpp
+	"shader_lighting_data.h"
+
+1505903743 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/math/vector_computations.cpp
+	"vector_computations.h"
+
+1505903208 /mnt/personal/my/src/C++/opengl/GLEngine/base/math/vector_computations.h
+	"matrix_math_types.h"
+
+1505905544 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/interfaces/default_shader_phong.cpp
+	"default_shader_phong.h"
+
+1505905562 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/interfaces/default_shader_phong.h
+
+1506073909 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_sum_and_max_counters.cpp
+	"assimp_sum_and_max_counters.h"
+
+1506073920 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_sum_and_max_counters.h
+
+1506074052 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_scenes_element_buffer_object.cpp
+	"assimp_scenes_element_buffer_object.h"
+	"assimp_elements_counters.h"
+	"assimp_subbuffer_generators.h"
+	"model_buffer_generators.h"
+	"element_buffer_object_helpers.h"
+	"model_buffer_binders.h"
+	"vertex_buffer_object.h"
+	"assimp_counters.h"
+
+1505930188 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_scenes_element_buffer_object.h
+	"element_buffer_object.h"
+	<assimp/scene.h>
+	<GLFW/glfw3.h>
+
+1505999734 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_scenes_vao_vbo_ebo_package.cpp
+	"assimp_scenes_vao_vbo_ebo_package.h"
+	"vertex_array_object.h"
+	"assimp_scenes_element_buffer_object.h"
+	"assimp_vertex_buffer_object.h"
+	"vertex_buffer_object_helpers.h"
+	"vertex_array_object_helpers.h"
+	"model_buffer_generators.h"
+	"assimp_converters.h"
+	"assimp_counters.h"
+	"vao_vbo_ebo_package_helpers.h"
+
+1505999542 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/objects/assimp_scenes_vao_vbo_ebo_package.h
+	"vao_vbo_ebo_package.h"
+	<assimp/scene.h>
+	<GLFW/glfw3.h>
+	"offset_types.h"
+
+1505916687 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/render_ready_multi_package.cpp
+	"render_ready_multi_package.h"
+
+1505916679 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/render_ready_multi_package.h
+
+1505907135 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/light/diffuse_light_data.cpp
+	"diffuse_light_data.h"
+
+1506009014 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/light/diffuse_light_data.h
+	"matrix_math_types.h"
+
+1505941758 /mnt/personal/my/src/C++/opengl/GLEngine/base/render/objects/render_ready_package_helpers.h
+	<GLFW/glfw3.h>
+
+1506006666 /mnt/personal/my/src/C++/opengl/GLEngine/base/render/objects/render_ready_package.h
+	<memory>
+	"shader_types.h"
+
+1505939995 /mnt/personal/my/src/C++/opengl/GLEngine/base/render/objects/render_ready_root_node.h
+	<memory>
+
+1506006655 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/render/objects/render_ready_package.cpp
+	"model_base.h"
+	"render_ready_package.h"
+	"vao_vbo_ebo_package_helpers.h"
+	"vao_vbo_ebo_package.h"
+	"vertex_buffer_object.h"
+	<vector>
+	"render_ready_root_node.h"
+	"shader_lighting_uniforms.h"
+
+1505999183 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/render/objects/render_ready_package_helpers.cpp
+	<GL/glew.h>
+	"render_ready_package_helpers.h"
+	"render_ready_package.h"
+	"vertex_attrib_pointer_setup.h"
+	"vao_vbo_ebo_package.h"
+	"vao_vbo_ebo_package_helpers.h"
+	"model_buffer_binders.h"
+	"model_base.h"
+	"model_node.h"
+	"render_ready_root_node.h"
+
+1505941320 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/render/objects/render_ready_root_node.cpp
+	"render_ready_root_node.h"
+	"shader_lighting_data.h"
+
+1505997239 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/objects/offset_types.h
+
+1506008428 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/light/shader_lighting_uniforms.h
+	"ambient_light_uniforms.h"
+	"diffuse_light_uniforms.h"
+
+1506000422 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/light/ambient_light_uniforms.h
+	<GLFW/glfw3.h>
+
+1506007115 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/light/shader_lighting_helpers.h
+
+1506000376 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/light/ambient_light_uniforms.cpp
+	"ambient_light_uniforms.h"
+
+1506008469 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/light/shader_lighting_helpers.cpp
+	"shader_lighting_helpers.h"
+	"shader_lighting_data.h"
+	"shader_lighting_uniforms.h"
+	"ambient_light_helpers.h"
+	"diffuse_light_helpers.h"
+
+1506006339 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/light/shader_lighting_uniforms.cpp
+	"shader_lighting_uniforms.h"
+
+1506009874 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/light/diffuse_light_uniforms.h
+	<GLFW/glfw3.h>
+	"matrix_math_types.h"
+
+1506009834 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/light/ambient_light_helpers.cpp
+	<GL/glew.h>
+	"ambient_light_helpers.h"
+	"ambient_light_data.h"
+	"ambient_light_uniforms.h"
+	"vector_helpers.h"
+	"vector_computations.h"
+	"vertex_attrib_helpers.h"
+
+1506008494 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/light/ambient_light_helpers.h
+	"shader_types.h"
+	"matrix_math_types.h"
+
+1506009858 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/light/diffuse_light_helpers.cpp
+	<GL/glew.h>
+	"diffuse_light_helpers.h"
+	"diffuse_light_data.h"
+	"diffuse_light_uniforms.h"
+
+1506008799 /mnt/personal/my/src/C++/opengl/GLEngine/base/shader/light/diffuse_light_helpers.h
+
+1506007997 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/shader/light/diffuse_light_uniforms.cpp
+	"diffuse_light_uniforms.h"
+
+1506008607 source:/mnt/personal/my/src/C++/opengl/GLEngine/base/model/model_node_helpers.cpp
+	"model_node_helpers.h"
+	<iostream>
+	"model_node.h"
+
+1506008629 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/model_node_helpers.h
+
+1506072265 /mnt/personal/my/src/C++/opengl/GLEngine/base/model/assimp/helpers/assimp_helpers.h
+	"assimp_constants.h"
+	<assimp/scene.h>
 

@@ -26,6 +26,10 @@ namespace gle {
         /////////////////////////
         void updateViewMatrix();
 
+        inline virtual void updateModelMatrix(){
+            updateViewMatrix();
+        }
+
         void setPerspectiveProjection(const GLfloat left,
                                       const GLfloat right,
                                       const GLfloat top,
@@ -51,7 +55,9 @@ namespace gle {
         /////////////////////////
 
 
-        void getModelViewProjectionMatrix(const Mat4 modelMatrix,Mat4  outputModelViewProjection)const;
+        const GLfloat * getViewProjectionMatrix()const{
+            return m_viewProjection;
+        }
 
         /////////////////////////
         //non-const getters
@@ -70,7 +76,7 @@ namespace gle {
       protected:
 
       private:
-        Mat4 m_viewMatrix;
+//        Mat4 m_viewMatrix;
         Mat4 m_projection;
         Mat4 m_viewProjection;
     };

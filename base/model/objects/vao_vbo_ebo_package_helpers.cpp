@@ -4,8 +4,11 @@
 #include "element_buffer_object.h"
 #include "vertex_array_object.h"
 #include "vertex_array_object_helpers.h"
+#include "vertex_buffer_object_helpers.h"
 #include "vertex_attrib_pointer_setup.h"
 #include "model_buffer_binders.h"
+#include <iostream>
+#include "max.h"
 namespace gle {
     const unsigned int getSize(const VaoVboEboPackage & pack) {
         return pack.getEBO().getSize();
@@ -62,7 +65,6 @@ namespace gle {
     void renderAllEBO(const VaoVboEboPackage & pack,const GLenum mode) {
         if(hasVAO_ID(pack)&&!isEmpty(pack)) {
             bindVAO(pack);
-//            bindEBO(pack);
             glMultiDrawElements(mode,getEBOArraySizesPtr(pack),getEBOType(pack),(void**)getEBOArrayOffsetsPtr(pack),getSize(pack));
             unbindVAO();
         }
@@ -70,59 +72,32 @@ namespace gle {
     void renderEBO(const VaoVboEboPackage & pack,const GLenum mode,unsigned int index) {
         if(index<getSize(pack)) {
             bindVAO(pack);
-//            bindEBO(pack);
             glDrawElements(mode,getElementArraySizeInElements(pack,index),getEBOType(pack),(void*)getElementArrayOffsetInBytes(pack,index));
             unbindVAO();
         }
     }
 
-    void bindVertexAttribPointers(
-        const VaoVboEboPackage &pack,
-        const unsigned int vboIndex,
-        const unsigned int colorSetIndex,
-        const unsigned int textureSetIndex,
-        const GLuint vertexInputLocation,
-        const GLint colorInputLocation,
-        const GLint textureInputLocation,
-        const GLfloat defaultColorR,
-        const GLfloat defaultColorG,
-        const GLfloat defaultColorB,
-        const GLfloat defaultColorA)
-    {
-        bindVAO(pack);
-        bindVBO(pack);
-        bindVertexAttribPointers(
-            pack.getVBO(vboIndex),
-            colorSetIndex,
-            textureSetIndex,
-            vertexInputLocation,
-            colorInputLocation,
-            textureInputLocation,
-            defaultColorR,
-            defaultColorG,
-            defaultColorB,
-            defaultColorA);
-        unbindVAO();
+    bool debugVboTextureDimentionality(const VaoVboEboPackage &pack){
+        for(unsigned int i=0;i<pack.getVBOsNumber();i++){
+            int invalidIndex=validateDimentionality(getVBO(pack,i));
+            if(invalidIndex>-1){
+                std::cout<<"Invalid VBO (index="<< i<<") texture (index="<< invalidIndex<<") dimentionality!";
+            }
+        }
+    }
+    const VertexBufferObject & getVBO(const VaoVboEboPackage & pack,unsigned int index){
+        return *pack.getVBO(index).get();
     }
 
-    const bool bindVertexAttribPointers(
-        const VaoVboEboPackage &pack,
-        const unsigned int vboIndex,
-        const GLuint program,
-        const unsigned int colorSetIndex,
-        const unsigned int textureSetIndex,
-        const GLchar *const vertexInputLocation,
-        const GLchar *const colorInputLocation,
-        const GLchar *const textureInputLocation,
-        const GLfloat defaultColorR,
-        const GLfloat defaultColorG,
-        const GLfloat defaultColorB,
-        const GLfloat defaultColorA)
-    {
-        bindVAO(pack);
-        bindVBO(pack);
-        const bool out= bindVertexAttribPointers(pack.getVBO(vboIndex),program,colorSetIndex,textureSetIndex,vertexInputLocation,colorInputLocation,textureInputLocation,defaultColorR,defaultColorG,defaultColorB,defaultColorA);
-        unbindVAO();
-        return out;
+    const vbo_offset getEndingOffsetOfAllVBOs(const VaoVboEboPackage &pack) {
+        return getVBOEndingOffset(*pack.getVBO(pack.getVBOsNumber()-1).get());
+    }
+
+    const GLsizei getLargestSubArraySizeOfAllVBOsInElements(const VaoVboEboPackage &pack) {
+        GLsizei max=0;
+        for(unsigned int i=0; i<pack.getVBOsNumber(); i++) {
+            compareMax<GLsizei>(getVBOLargestSubArraySizeInElements(*pack.getVBO(i).get()),max);
+        }
+        return max;
     }
 }

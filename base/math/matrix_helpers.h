@@ -4,7 +4,7 @@
 namespace gle {
     /**This files contains functions that facilitate access to propeties of Mat4*/
 
-    inline unsigned int getCellIndexOfMat4(const unsigned int x,const unsigned int y) {
+    inline constexpr unsigned int getCellIndexOfMat4(const unsigned int x,const unsigned int y) {
         return y*4+x;
     }
     /** row major order. x=0 y=0 points to upper left corner (cell index 0)*/

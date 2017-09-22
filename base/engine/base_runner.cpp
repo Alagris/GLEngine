@@ -1,7 +1,8 @@
 #include "base_runner.h"
 #include "display.h"
-#include <GLFW/glfw3.h>
 #include <iostream>
+#include <GLFW/glfw3.h>
+
 namespace gle {
     callbackFunc initF=nullptr,updateF=nullptr,renderF=nullptr,destroyF=nullptr;
     void setInitializationCallback(const callbackFunc f) {

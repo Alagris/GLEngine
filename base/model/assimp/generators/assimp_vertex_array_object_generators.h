@@ -1,8 +1,8 @@
 #ifndef ASSIMP_VERTEX_ARRAY_OBJECT_GENERATORS_H
 #define ASSIMP_VERTEX_ARRAY_OBJECT_GENERATORS_H
-#include <assimp/mesh.h>
-#include <assimp/scene.h>
-#include <GLFW/glfw3.h>
+//#include <assimp/mesh.h>
+//#include <assimp/scene.h>
+//#include <GL/glew.h>
 namespace gle {
 //    struct VertexArrayObject;
 //

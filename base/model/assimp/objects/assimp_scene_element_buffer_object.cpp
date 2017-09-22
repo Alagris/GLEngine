@@ -9,13 +9,6 @@
 
 namespace gle {
 
-     const aiMesh * const getmesh(const aiScene*const scene,unsigned int i){
-         unsigned int x=0;
-         if(i==0)i=x;
-         else if(i==x)i=0;
-        return scene->mMeshes[i];
-    }
-
     AssimpSceneElementBufferObject::AssimpSceneElementBufferObject(const aiScene*const scene,const ebo_offset elementArrayOffset,const GLenum type,const unsigned int numIndicesPerFace):
         ElementBufferObject(type),
         m_scene(scene),
@@ -23,7 +16,7 @@ namespace gle {
     {
         reserve(scene->mNumMeshes);
         for(unsigned int i=0; i<scene->mNumMeshes; i++) {
-            const unsigned int n=countIndicesElementsInMesh(getmesh(m_scene,i),numIndicesPerFace);
+            const unsigned int n=index::countElementsInMesh(m_scene->mMeshes[i],numIndicesPerFace);
             push_back(n);
         }
     }
@@ -37,7 +30,7 @@ namespace gle {
             std::unique_ptr<GLuint[]> bufPtr(new GLuint[getEBOLargestSubArraySizeInElements(ebo)]);
             generateEmptyEBO_glb(getTotalSizeOfEBOInBytes(ebo),usage,reservedEBO_ID);
             for(unsigned int i=0; i<m_scene->mNumMeshes; i++) {
-                generateIndicesSubEBO(getmesh(m_scene,i),bufPtr.get(),i,ebo,m_numIndicesPerFace);
+                index::generateSubEBO(m_scene->mMeshes[i],bufPtr.get(),i,ebo,m_numIndicesPerFace);
             }
             unbindEBO();
             m_hasBeenGenerated=true;

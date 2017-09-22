@@ -1,6 +1,6 @@
 #include "assimp_max_counters.h"
 #include "assimp_counters.h"
-#include "assimp_converters.h"
+//#include "assimp_converters.h"
 #include "max.h"
 namespace gle {
     namespace {
@@ -8,7 +8,7 @@ namespace gle {
 
 
         template<countMaxInSceneFunc f>
-        const unsigned int genericCountMaxInMeshesOfScenes(const aiScene*const*const scenes,unsigned int scenesCount) {
+        const unsigned int genericCountMaxInMeshesOfScenes(const aiScene*const*const scenes,const unsigned int scenesCount) {
             unsigned int max=0;
             for(unsigned int i=0; i<scenesCount; i++) {
                 compareMax<unsigned int>( f(scenes[i]),max);
@@ -27,59 +27,52 @@ namespace gle {
             return max;
         }
     }
-    /////////////////
-    //vertices
-    /////////////////
-
-    const unsigned int countMaxVerticesInMeshesOfScene(const aiScene*const scene) {
-        return genericCountMaxInMeshesOfScene<countVerticesInMesh>(scene);
-    }
-    const unsigned int countMaxVerticesInMeshesOfScenes(const aiScene*const*const scenes,unsigned int scenesCount) {
-        return genericCountMaxInMeshesOfScenes<countMaxVerticesInMeshesOfScene>(scenes,scenesCount);
+    namespace index {
+        const unsigned int countMaxInMeshesOfScene(const aiScene*const scene) {
+            return genericCountMaxInMeshesOfScene<countInMesh>(scene);
+        }
+        const unsigned int countMaxInMeshesOfScenes(const aiScene*const*const scenes,const unsigned int scenesCount) {
+            return genericCountMaxInMeshesOfScenes<countMaxInMeshesOfScene>(scenes,scenesCount);
+        }
     }
 
-    /////////////////
-    //indices
-    /////////////////
+    namespace vertex {
 
-    const unsigned int countMaxIndicesInMeshesOfScene(const aiScene*const scene) {
-        return genericCountMaxInMeshesOfScene<countIndicesInMesh>(scene);
+        const unsigned int countMaxInMeshesOfScene(const aiScene*const scene) {
+            return genericCountMaxInMeshesOfScene<countInMesh>(scene);
+        }
+        const unsigned int countMaxInMeshesOfScenes(const aiScene*const*const scenes,const unsigned int scenesCount) {
+            return genericCountMaxInMeshesOfScenes<countMaxInMeshesOfScene>(scenes,scenesCount);
+        }
     }
-    const unsigned int countMaxIndicesInMeshesOfScenes(const aiScene*const*const scenes,unsigned int scenesCount) {
-        return genericCountMaxInMeshesOfScenes<countMaxIndicesInMeshesOfScene>(scenes,scenesCount);
+    namespace color {
+
+        const unsigned int countMaxInMeshesOfScene(const aiScene*const scene) {
+            return genericCountMaxInMeshesOfScene<countInMesh>(scene);
+        }
+        const unsigned int countMaxInMeshesOfScenes(const aiScene*const*const scenes,const unsigned int scenesCount) {
+            return genericCountMaxInMeshesOfScenes<countMaxInMeshesOfScene>(scenes,scenesCount);
+        }
     }
+//    namespace normal {
+//        const unsigned int countMaxInMeshesOfScene(const aiScene*const scene) {
+//            return genericCountMaxInMeshesOfScene<countInMesh>(scene);
+//        }
+//        const unsigned int countMaxInMeshesOfScenes(const aiScene*const*const scenes,const unsigned int scenesCount) {
+//            return genericCountMaxInMeshesOfScenes<countMaxInMeshesOfScene>(scenes,scenesCount);
+//        }
+//    }
+    namespace mixed {
+        /**finds max among all textures, colors,normals and vertices*/
+        const unsigned int countMaxInMeshesOfScene(const aiScene*const scene) {
+            return max<unsigned int>(::gle::vertex::countMaxInMeshesOfScene(scene),::gle::color::countMaxInMeshesOfScene(scene));
+        }
 
-    /////////////////
-    //colors
-    /////////////////
-
-
-    const unsigned int countMaxColorVerticesInMeshesOfScene(const aiScene*const scene) {
-        return genericCountMaxInMeshesOfScene<countColorVerticesInMesh>(scene);
+        /**finds max among all textures, colors,normals and vertices*/
+        const unsigned int countMaxInMeshesOfScenes(const aiScene*const*const scenes,const unsigned int scenesCount) {
+            return genericCountMaxInMeshesOfScenes<countMaxInMeshesOfScene>(scenes,scenesCount);
+        }
     }
-    const unsigned int countMaxColorVerticesInMeshesOfScenes(const aiScene*const*const scenes,unsigned int scenesCount) {
-        return genericCountMaxInMeshesOfScenes<countMaxColorVerticesInMeshesOfScene>(scenes,scenesCount);
-    }
-
-    /////////////////
-    //textures
-    /////////////////
-    const unsigned int countMaxTextureVerticesInMeshesOfScene(const aiScene*const scene) {
-        return genericCountMaxInMeshesOfScene<countTextureVerticesInMesh>(scene);
-    }
-    const unsigned int countMaxTextureVerticesInMeshesOfScenes(const aiScene*const*const scenes,unsigned int scenesCount) {
-        return genericCountMaxInMeshesOfScenes<countMaxTextureVerticesInMeshesOfScene>(scenes,scenesCount);
-    }
-
-    ////////////////
-    //mixed
-    ////////////////
-
-    /**finds max among all textures, colors and vertices*/
-    const unsigned int countMaxTexColVerInMeshesOfScenes(const aiScene*const*const scenes,unsigned int scenesCount) {
-        return genericCountMaxInMeshesOfScenes<countMaxTexColVerInMeshesOfScene>(scenes,scenesCount);
-    }
-
 
 
 

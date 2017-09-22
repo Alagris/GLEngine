@@ -22,8 +22,8 @@ namespace gle {
             ebo.generate(vao.getEBO(),usage);
             setEBO(ebo);
             //generating VBO
-            AssimpVertexBufferObject vbo(m_mesh);
-            vbo.generate(vao.getVBO(),usage);
+            std::shared_ptr<VertexBufferObject>  vbo( new AssimpVertexBufferObject(m_mesh));
+            (*vbo.get()).generate(vao.getVBO(),usage);
             addVBO(vbo);
 
             //binding everything together
